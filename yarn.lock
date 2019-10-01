@@ -810,6 +810,11 @@ locate-path@^5.0.0:
   dependencies:
     p-locate "^4.1.0"
 
+lodash.get@^4.4.2:
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
+  integrity sha1-LRd/ZS+jHpObRDjVNBSZ36OCXpk=
+
 loud-rejection@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/loud-rejection/-/loud-rejection-2.1.0.tgz#4020547ddbc39ed711c8434326df9fc7d2395355"

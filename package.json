@@ -18,7 +18,8 @@
   "homepage": "https://github.com/eugenechu/alfred-translayta#readme",
   "dependencies": {
     "@vitalets/google-translate-api": "^3.0.0",
-    "alfy": "^0.9.1"
+    "alfy": "^0.9.1",
+    "lodash.get": "^4.4.2"
   },
   "devDependencies": {
     "prettier": "^1.18.2"
