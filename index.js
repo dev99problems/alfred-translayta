@@ -1,31 +1,13 @@
 const alfy = require('alfy')
 const translate = require('@vitalets/google-translate-api')
-const _get = require('lodash.get')
 
-const {formatForOutput, getOtherTranslations, getCorrectedOutput} = require('./utils')
-
-const intl = {
-  bestTranslMsg: {
-    ru: 'найболее подходящий перевод',
-    en: 'best match translation'
-  },
-  errMsg: {
-    ru: 'При получении перевода произошла ошибка',
-    en: 'Error occured while getting translation'
-  },
-  autoCorrectMsg: {
-    ru: 'может вы имели ввиду ⤴️',
-    en: 'did you mean ⤴️'
-  }
-}
-
-const parseCorrectedDetails = translationDetails => {
-  const textDetails = _get(translationDetails, 'text', {})
-  return {
-    isAutoCorrected: textDetails.autoCorrected,
-    correctedValue: textDetails.value
-  }
-}
+const { getOtherTranslations, parseAutoCorrection } = require('./utils')
+const {
+  formatMainTranslation,
+  formatForOutput,
+  getCorrectedOutput
+} = require('./output')
+const intl = require('./intl')
 
 const userInput = process.argv[2] || ''
 
@@ -37,19 +19,18 @@ const getTranslationTarget = input => (isASCII(input) ? 'ru' : 'en')
 const from = getTranslationSource(userInput)
 const to = getTranslationTarget(userInput)
 
-translate(userInput, {from, to, raw: true})
+translate(userInput, { from, to, raw: true })
   .then(response => {
-    const {text: translation, from: translationDetails, raw} = response
-    const mainTranslation = {
-      title: translation,
-      subtitle: intl.bestTranslMsg[to]
-    }
-    const { isAutoCorrected, correctedValue} = parseCorrectedDetails(translationDetails)
+    const { text: translation, from: translationDetails, raw } = response
+    const { isAutoCorrected, correctedValue } = parseAutoCorrection(
+      translationDetails
+    )
 
+    const mainTranslation = formatMainTranslation(translation, to)
     let allVariants = []
 
     if (isAutoCorrected) {
-      const correctedTranslation = getCorrectedOutput(correctedValue, intl.autoCorrectMsg[to])
+      const correctedTranslation = getCorrectedOutput(correctedValue, to)
       allVariants = [correctedTranslation, mainTranslation]
     } else {
       const otherTranslations = getOtherTranslations(raw)
@@ -59,5 +40,5 @@ translate(userInput, {from, to, raw: true})
     alfy.output(allVariants)
   })
   .catch(err => {
-    alfy.output([{title: intl.errMsg[to]}])
+    alfy.output([{ title: intl.errMsg[to] }])
   })
