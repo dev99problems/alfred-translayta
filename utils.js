@@ -1,6 +1,6 @@
 const _get = require('lodash.get')
 
-module.exports.convertIntoItems = (otherTranslations = {}) =>
+module.exports.formatForOutput = (otherTranslations = {}) =>
   Object.keys(otherTranslations).reduce((acc, partOfSpeech) => {
     const translations = otherTranslations[partOfSpeech]
     const items = translations.map((item, idx) => ({
@@ -28,5 +28,18 @@ module.exports.getOtherTranslations = input => {
   } catch (err) {
     console.error(err)
     return {}
+  }
+}
+
+module.exports.getCorrectedOutput = (correctedValue, hint) => {
+  const parsedValue = correctedValue.replace(/[\[\]]/g, '')
+
+  return {
+    title: parsedValue,
+    subtitle: hint,
+    autocomplete: parsedValue,
+    icon: {
+      path: './icons/question.png'
+    }
   }
 }
