@@ -1,6 +1,6 @@
 module.exports = {
   "arrowParens": "avoid",
-  "bracketSpacing": false,
+  "bracketSpacing": true,
   "insertPragma": false,
   "printWidth": 80,
   "proseWrap": "preserve",
