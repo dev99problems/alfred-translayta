@@ -5,7 +5,7 @@ module.exports.formatMainTranslation = (translation, to) => ({
   subtitle: intl.bestTranslMsg[to]
 })
 
-module.exports.formatForOutput = (otherTranslations = {}) =>
+module.exports.formatOtherTranslations = (otherTranslations = {}) =>
   Object.keys(otherTranslations).reduce((acc, partOfSpeech) => {
     const translations = otherTranslations[partOfSpeech]
     const items = translations.map((item, idx) => ({
@@ -16,7 +16,7 @@ module.exports.formatForOutput = (otherTranslations = {}) =>
     return [...acc, ...items]
   }, [])
 
-module.exports.getCorrectedOutput = (correctedValue, to) => {
+module.exports.formatAutoCorrection = (correctedValue, to) => {
   const parsedValue = correctedValue.replace(/[\[\]]/g, '')
 
   return {

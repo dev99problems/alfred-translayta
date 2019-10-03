@@ -4,8 +4,8 @@ const translate = require('@vitalets/google-translate-api')
 const { getOtherTranslations, parseAutoCorrection } = require('./utils')
 const {
   formatMainTranslation,
-  formatForOutput,
-  getCorrectedOutput
+  formatOtherTranslations,
+  formatAutoCorrection
 } = require('./output')
 const intl = require('./intl')
 
@@ -30,11 +30,14 @@ translate(userInput, { from, to, raw: true })
     let allVariants = []
 
     if (isAutoCorrected) {
-      const correctedTranslation = getCorrectedOutput(correctedValue, to)
+      const correctedTranslation = formatAutoCorrection(correctedValue, to)
       allVariants = [correctedTranslation, mainTranslation]
     } else {
       const otherTranslations = getOtherTranslations(raw)
-      allVariants = [mainTranslation, ...formatForOutput(otherTranslations)]
+      allVariants = [
+        mainTranslation,
+        ...formatOtherTranslations(otherTranslations)
+      ]
     }
 
     alfy.output(allVariants)
