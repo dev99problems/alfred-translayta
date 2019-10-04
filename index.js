@@ -9,8 +9,15 @@ const {
 } = require('./src/output')
 const { translationDirection } = require('./src/translation-direction')
 const { intl } = require('./src/intl')
+const { lastSearchCache } = require('./src/cache')
 
 const userInput = process.argv[2] || ''
+const isInputEmpty = !!!userInput.trim().length
+
+if (isInputEmpty) {
+  alfy.output(lastSearchCache.get())
+  return
+}
 
 const { from, to } = translationDirection(userInput)
 
@@ -35,9 +42,11 @@ translate(userInput, { from, to, raw: true })
       ]
     }
 
+    lastSearchCache.set(allVariants)
     alfy.output(allVariants)
   })
   .catch(err => {
     console.error('error on translation response: ', err)
+    lastSearchCache.reset()
     alfy.output([{ title: intl.errMsg[to] }])
   })
