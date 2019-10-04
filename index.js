@@ -7,17 +7,12 @@ const {
   formatOtherTranslations,
   formatAutoCorrection
 } = require('./output')
-const intl = require('./intl')
+const { translationDirection } = require('./translation-direction')
+const { intl } = require('./intl')
 
 const userInput = process.argv[2] || ''
 
-const isASCII = str => [].every.call(str, sign => sign.charCodeAt(0) <= 127)
-
-const getTranslationSource = input => (isASCII(input) ? 'en' : 'ru')
-const getTranslationTarget = input => (isASCII(input) ? 'ru' : 'en')
-
-const from = getTranslationSource(userInput)
-const to = getTranslationTarget(userInput)
+const { from, to } = translationDirection(userInput)
 
 translate(userInput, { from, to, raw: true })
   .then(response => {
@@ -43,5 +38,6 @@ translate(userInput, { from, to, raw: true })
     alfy.output(allVariants)
   })
   .catch(err => {
+    console.error('error on translation response: ', err)
     alfy.output([{ title: intl.errMsg[to] }])
   })

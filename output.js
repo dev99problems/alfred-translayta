@@ -1,4 +1,4 @@
-const intl = require('./intl')
+const { intl } = require('./intl')
 
 module.exports.formatMainTranslation = (translation, to) => ({
   title: translation,
