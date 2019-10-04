@@ -1,14 +1,14 @@
 const alfy = require('alfy')
 const translate = require('@vitalets/google-translate-api')
 
-const { getOtherTranslations, parseAutoCorrection } = require('./utils')
+const { getOtherTranslations, parseAutoCorrection } = require('./src/utils')
 const {
   formatMainTranslation,
   formatOtherTranslations,
   formatAutoCorrection
-} = require('./output')
-const { translationDirection } = require('./translation-direction')
-const { intl } = require('./intl')
+} = require('./src/output')
+const { translationDirection } = require('./src/translation-direction')
+const { intl } = require('./src/intl')
 
 const userInput = process.argv[2] || ''
 
