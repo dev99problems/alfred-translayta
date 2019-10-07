@@ -1,8 +1,8 @@
 const { intl } = require('./intl')
 
-module.exports.formatMainTranslation = (translation, to) => ({
+module.exports.formatMainTranslation = (translation, targetLang) => ({
   title: translation,
-  subtitle: intl.bestTranslMsg[to]
+  subtitle: intl.bestTranslMsg[targetLang]
 })
 
 module.exports.formatOtherTranslations = (otherTranslations = {}) =>
@@ -16,12 +16,12 @@ module.exports.formatOtherTranslations = (otherTranslations = {}) =>
     return [...acc, ...items]
   }, [])
 
-module.exports.formatAutoCorrection = (correctedValue, to) => {
+module.exports.formatAutoCorrection = (correctedValue, targetLang) => {
   const parsedValue = correctedValue.replace(/[\[\]]/g, '')
 
   return {
     title: parsedValue,
-    subtitle: intl.autoCorrectMsg[to],
+    subtitle: intl.autoCorrectMsg[targetLang],
     autocomplete: parsedValue,
     icon: {
       path: './icons/question.png'
