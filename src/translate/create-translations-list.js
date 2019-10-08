@@ -1,4 +1,4 @@
-const { getOtherTranslations, parseAutoCorrection } = require('../utils')
+const { parseAutoCorrection, normalizeResponse } = require('../utils')
 const {
   formatMainTranslation,
   formatOtherTranslations,
@@ -7,8 +7,13 @@ const {
 
 const createTranslationsList = (response, targetLang) => {
   const { text: translation, from: translationDetails, raw } = response
+  const { otherTranslations, pronunciation } = normalizeResponse(raw)
 
-  const mainTranslation = formatMainTranslation(translation, targetLang)
+  const mainTranslation = formatMainTranslation(
+    translation,
+    pronunciation,
+    targetLang
+  )
 
   const { isAutoCorrected, correctedValue } = parseAutoCorrection(
     translationDetails
@@ -18,8 +23,6 @@ const createTranslationsList = (response, targetLang) => {
     const suggestion = formatAutoCorrection(correctedValue, targetLang)
     return [suggestion, mainTranslation]
   }
-
-  const otherTranslations = getOtherTranslations(raw)
 
   return [mainTranslation, ...formatOtherTranslations(otherTranslations)]
 }

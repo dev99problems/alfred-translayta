@@ -1,7 +1,11 @@
 const { intl } = require('./intl')
 
-module.exports.formatMainTranslation = (translation, targetLang) => ({
-  title: translation,
+module.exports.formatMainTranslation = (
+  translation,
+  pronunciation,
+  targetLang
+) => ({
+  title: pronunciation ? `${translation} [${pronunciation}]` : translation,
   subtitle: intl.bestTranslMsg[targetLang]
 })
 

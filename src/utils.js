@@ -8,22 +8,40 @@ module.exports.parseAutoCorrection = translationDetails => {
   }
 }
 
-module.exports.getOtherTranslations = input => {
+const parseRawResponse = rawApiResponse => {
   try {
-    const parsedResponse = JSON.parse(input)
-    const otherTranslations = _get(parsedResponse, '[1]') || []
-
-    return otherTranslations.reduce((acc, translation) => {
-      const partOfSpeech = _get(translation, '[0]')
-      const translationVariants = _get(translation, '[1]')
-
-      return {
-        ...acc,
-        [partOfSpeech]: translationVariants
-      }
-    }, {})
+    const parsedResponse = JSON.parse(rawApiResponse) || []
+    return {
+      otherTranslations: _get(parsedResponse, '[1]') || [],
+      pronunciationDetails: _get(parsedResponse, '[0][1]')
+    }
   } catch (err) {
-    console.error(err)
+    console.error(`Error while parsing apiResponse: ${err}`)
     return {}
   }
 }
+
+module.exports.normalizeResponse = rawApiResponse => {
+  const { otherTranslations, pronunciationDetails } = parseRawResponse(
+    rawApiResponse
+  )
+
+  return {
+    otherTranslations: normalizeOtherTranslations(otherTranslations),
+    pronunciation: normalizePronunciation(pronunciationDetails)
+  }
+}
+
+const normalizePronunciation = (pronunciationDetails = []) =>
+  _get(pronunciationDetails, '[3]')
+
+const normalizeOtherTranslations = otherTranslations =>
+  otherTranslations.reduce((acc, translation) => {
+    const partOfSpeech = _get(translation, '[0]')
+    const translationVariants = _get(translation, '[1]')
+
+    return {
+      ...acc,
+      [partOfSpeech]: translationVariants
+    }
+  }, {})
