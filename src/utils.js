@@ -1,10 +1,14 @@
 const _get = require('lodash.get')
 
 module.exports.parseAutoCorrection = translationDetails => {
-  const textDetails = _get(translationDetails, 'text', {})
+  const { autoCorrected, value, didYouMean } = _get(
+    translationDetails,
+    'text',
+    {}
+  )
   return {
-    isAutoCorrected: textDetails.autoCorrected,
-    correctedValue: textDetails.value
+    isAutoCorrected: autoCorrected || didYouMean,
+    correctedValue: value
   }
 }
 
