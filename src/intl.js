@@ -1,4 +1,4 @@
-module.exports.intl = {
+exports.intl = {
   bestTranslMsg: {
     ru: 'найболее подходящий перевод',
     en: 'best match translation'

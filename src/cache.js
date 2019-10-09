@@ -18,4 +18,4 @@ class Cache {
   }
 }
 
-module.exports.lastSearchCache = new Cache('last-search')
+exports.lastSearchCache = new Cache('last-search')

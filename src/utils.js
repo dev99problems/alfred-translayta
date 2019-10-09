@@ -1,6 +1,6 @@
 const _get = require('lodash.get')
 
-module.exports.parseAutoCorrection = translationDetails => {
+exports.parseAutoCorrection = translationDetails => {
   const { autoCorrected, value, didYouMean } = _get(
     translationDetails,
     'text',
@@ -9,6 +9,17 @@ module.exports.parseAutoCorrection = translationDetails => {
   return {
     isAutoCorrected: autoCorrected || didYouMean,
     correctedValue: value
+  }
+}
+
+exports.normalizeResponse = rawApiResponse => {
+  const { otherTranslations, pronunciationDetails } = parseRawResponse(
+    rawApiResponse
+  )
+
+  return {
+    otherTranslations: normalizeOtherTranslations(otherTranslations),
+    pronunciation: normalizePronunciation(pronunciationDetails)
   }
 }
 
@@ -22,17 +33,6 @@ const parseRawResponse = rawApiResponse => {
   } catch (err) {
     console.error(`Error while parsing apiResponse: ${err}`)
     return {}
-  }
-}
-
-module.exports.normalizeResponse = rawApiResponse => {
-  const { otherTranslations, pronunciationDetails } = parseRawResponse(
-    rawApiResponse
-  )
-
-  return {
-    otherTranslations: normalizeOtherTranslations(otherTranslations),
-    pronunciation: normalizePronunciation(pronunciationDetails)
   }
 }
 

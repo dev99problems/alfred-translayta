@@ -1,15 +1,11 @@
 const { intl } = require('./intl')
 
-module.exports.formatMainTranslation = (
-  translation,
-  pronunciation,
-  targetLang
-) => ({
+exports.formatMainTranslation = (translation, pronunciation, targetLang) => ({
   title: pronunciation ? `${translation} [${pronunciation}]` : translation,
   subtitle: intl.bestTranslMsg[targetLang]
 })
 
-module.exports.formatOtherTranslations = (otherTranslations = {}) =>
+exports.formatOtherTranslations = (otherTranslations = {}) =>
   Object.keys(otherTranslations).reduce((acc, partOfSpeech) => {
     const translations = otherTranslations[partOfSpeech]
     const items = translations.map((item, idx) => ({
@@ -20,7 +16,7 @@ module.exports.formatOtherTranslations = (otherTranslations = {}) =>
     return [...acc, ...items]
   }, [])
 
-module.exports.formatAutoCorrection = (correctedValue, targetLang) => {
+exports.formatAutoCorrection = (correctedValue, targetLang) => {
   const parsedValue = correctedValue.replace(/[\[\]]/g, '')
 
   return {

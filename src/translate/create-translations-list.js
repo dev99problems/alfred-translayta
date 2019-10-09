@@ -27,4 +27,4 @@ const createTranslationsList = (response, targetLang) => {
   return [mainTranslation, ...formatOtherTranslations(otherTranslations)]
 }
 
-module.exports.createTranslationsList = createTranslationsList
+exports.createTranslationsList = createTranslationsList

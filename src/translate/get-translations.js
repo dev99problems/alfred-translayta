@@ -22,4 +22,4 @@ const getTranslations = userInput => {
     })
 }
 
-module.exports.getTranslations = getTranslations
+exports.getTranslations = getTranslations
