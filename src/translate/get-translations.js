@@ -11,7 +11,11 @@ const getTranslations = userInput => {
   return translate(userInput, { from, to, raw: true })
     .then(response => {
       const translationsList = createTranslationsList(response, to)
-      lastSearchCache.set(translationsList)
+      lastSearchCache.set({
+        prevUserInput: userInput,
+        prevDestLang: to,
+        prevOutput: translationsList
+      })
 
       return translationsList
     })

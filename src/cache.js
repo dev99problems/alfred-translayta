@@ -10,7 +10,7 @@ class Cache {
   }
 
   get() {
-    return alfy.cache.get(this.cacheName) || []
+    return alfy.cache.get(this.cacheName) || {}
   }
 
   reset() {

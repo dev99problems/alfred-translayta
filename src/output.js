@@ -28,3 +28,9 @@ exports.formatAutoCorrection = (correctedValue, targetLang) => {
     }
   }
 }
+
+exports.formatLastSearch = (lastUserInput, destLang) => ({
+  title: lastUserInput,
+  subtitle: intl.lastSearch[destLang],
+  icon: { path: './icons/history.png' }
+})
