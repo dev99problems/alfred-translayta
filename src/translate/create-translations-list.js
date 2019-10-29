@@ -1,11 +1,12 @@
 const { parseAutoCorrection, normalizeResponse } = require('../utils')
 const {
+  addToFavoritesAction,
   formatMainTranslation,
   formatOtherTranslations,
   formatAutoCorrection
 } = require('../output')
 
-const createTranslationsList = (response, targetLang) => {
+const createTranslationsList = (response, targetLang, userInput) => {
   const { text: translation, from: translationDetails, raw } = response
   const { otherTranslations, pronunciation } = normalizeResponse(raw)
 
@@ -22,9 +23,19 @@ const createTranslationsList = (response, targetLang) => {
   if (isAutoCorrected) {
     const suggestion = formatAutoCorrection(correctedValue, targetLang)
     return [suggestion, mainTranslation]
+  } else {
+    const addToFavorites = addToFavoritesAction(
+      userInput,
+      translation,
+      otherTranslations,
+      targetLang
+    )
+    return [
+      addToFavorites,
+      mainTranslation,
+      ...formatOtherTranslations(otherTranslations)
+    ]
   }
-
-  return [mainTranslation, ...formatOtherTranslations(otherTranslations)]
 }
 
 exports.createTranslationsList = createTranslationsList

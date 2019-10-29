@@ -14,5 +14,9 @@ exports.intl = {
   lastSearch: {
     ru: 'предыдущий запрос',
     en: 'the most recent user search'
+  },
+  addToFavorite: {
+    ru: 'добавить в избранное',
+    eng: 'add to favorites'
   }
 }
