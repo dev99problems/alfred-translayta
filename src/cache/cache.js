@@ -18,5 +18,4 @@ class Cache {
   }
 }
 
-exports.lastSearchCache = new Cache('last-search')
-exports.favoritesCache = new Cache('favorites')
+exports.Cache = Cache

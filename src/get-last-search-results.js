@@ -1,4 +1,4 @@
-const { lastSearchCache } = require('./cache')
+const { lastSearchCache } = require('./cache/last-search-cache')
 const { formatLastSearch } = require('./output')
 
 exports.getLastSearchResults = () => {

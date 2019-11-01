@@ -3,7 +3,7 @@ const translate = require('@vitalets/google-translate-api')
 const { createTranslationsList } = require('./create-translations-list')
 const { translationDirection } = require('../translation-direction')
 const { intl } = require('../intl')
-const { lastSearchCache } = require('../cache')
+const { lastSearchCache } = require('../cache/last-search-cache')
 
 const getTranslations = userInput => {
   const { from, to } = translationDirection(userInput)

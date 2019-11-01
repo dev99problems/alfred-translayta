@@ -2,7 +2,7 @@ const alfy = require('alfy')
 
 const { getTranslations } = require('./src/translate/get-translations')
 const { getLastSearchResults } = require('./src/get-last-search-results')
-const { favoritesCache } = require('./src/cache')
+const { favoritesCache } = require('./src/cache/favorites-cache')
 
 const userInput = process.argv[2] || ''
 const isInputEmpty = !Boolean(userInput.trim().length)
@@ -15,7 +15,7 @@ const isFavorites = userInput.trim().startsWith('.')
   if (isInputEmpty) {
     output = getLastSearchResults()
   } else if (isFavorites) {
-    output = favoritesCache.get().items
+    output = favoritesCache.getFavorites()
   } else {
     output = await getTranslations(userInput)
   }
