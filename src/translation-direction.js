@@ -7,3 +7,5 @@ exports.translationDirection = input => ({
   from: getTranslationSource(input),
   to: getTranslationTarget(input)
 })
+
+exports.getTranslationSource = getTranslationSource

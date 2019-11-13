@@ -1,23 +1,29 @@
 const alfy = require('alfy')
 
-const { getTranslations } = require('./src/translate/get-translations')
-const { getLastSearchResults } = require('./src/get-last-search-results')
-const { favoritesCache } = require('./src/cache/favorites-cache')
+const { showLastTranslation } = require('./src/commands/show-last-translation')
+const { showFavorites } = require('./src/commands/show-favorites.js')
+const { searchInFavorites } = require('./src/commands/search-in-favorites.js')
+const { translate } = require('./src/commands/translate.js')
 
-const userInput = process.argv[2] || ''
-const isInputEmpty = !Boolean(userInput.trim().length)
-const isFavorites = userInput.trim().startsWith('.')
+const userInput = (process.argv[2] || '').trim()
+
+const isInputEmpty = !Boolean(userInput.length)
+const isFavorites = userInput === '.'
+const isFavoritesSearch = userInput.startsWith('.') && !isFavorites
 
 // NOTE: even though seems like top level await landed in node v10.x
 // we use async iife here
 !(async () => {
   let output
+
   if (isInputEmpty) {
-    output = getLastSearchResults()
+    output = showLastTranslation()
   } else if (isFavorites) {
-    output = favoritesCache.getFavorites()
+    output = showFavorites()
+  } else if (isFavoritesSearch) {
+    output = searchInFavorites(userInput)
   } else {
-    output = await getTranslations(userInput)
+    output = await translate(userInput)
   }
 
   alfy.output(output)

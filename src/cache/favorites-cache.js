@@ -5,6 +5,17 @@ class FavoritesCache extends Cache {
     return super.get()
   }
 
+  get keys() {
+    return Object.keys(this.items).reverse()
+  }
+
+  getOutputItem(key) {
+    return {
+      title: key,
+      subtitle: this.items[key]
+    }
+  }
+
   addToFavorites(word, translations) {
     const items = this.items
 
@@ -20,28 +31,34 @@ class FavoritesCache extends Cache {
   }
 
   getFavorites() {
-    const items = this.items
+    const keys = this.keys
+    const keysCount = keys.length
     const favoritesList = []
 
-    const keys = Object.keys(items).reverse()
-    const keysCount = keys.length
-
-    for (let i = 0; i < keysCount; i++) {
+    for (let idx = 0; idx < keysCount; idx++) {
       const blockSize = 7
-      if (i && !(i % blockSize)) {
-        let lastIndex = i + blockSize
+      if (idx && !(idx % blockSize)) {
+        let lastIndex = idx + blockSize
         if (lastIndex > keysCount) {
           lastIndex = keysCount
         }
-        const subtitle = `${i + 1}—${lastIndex} ⤵️`
+        const subtitle = `${idx + 1}—${lastIndex} ⤵️`
         favoritesList.push({ title: ' ', subtitle, icon: { path: ' ' } })
       }
 
-      const key = keys[i]
-      favoritesList.push({ title: key, subtitle: items[key] })
+      const key = keys[idx]
+      const outputItem = this.getOutputItem(key)
+      favoritesList.push(outputItem)
     }
 
     return favoritesList
+  }
+
+  findInFavorites(userInput) {
+    const keys = this.keys
+    const matches = keys.filter(key => key.includes(userInput))
+
+    return matches.map(key => this.getOutputItem(key))
   }
 }
 

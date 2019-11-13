@@ -17,6 +17,10 @@ exports.intl = {
   },
   addToFavorite: {
     ru: 'добавить в избранное',
-    eng: 'add to favorites'
+    en: 'add to favorites'
+  },
+  noSearchResults: {
+    ru: 'По вашему запросу ничего не найдено',
+    en: 'No results found'
   }
 }
