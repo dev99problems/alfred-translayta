@@ -10,7 +10,7 @@ const emptyListMsg = userInput => {
 
 const searchInFavorites = userInput => {
   const screenedInput = userInput.replace(/^(\.|\s)*/g, '')
-  const results = favoritesCache.findInFavorites(screenedInput)
+  const results = favoritesCache.filterBy(screenedInput)
 
   return results.length ? results : emptyListMsg(userInput)
 }

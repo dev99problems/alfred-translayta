@@ -10,7 +10,7 @@ class FavoritesCache extends Cache {
     return Object.keys(this.items).reverse()
   }
 
-  getOutputItem(key) {
+  _getOutputItem(key) {
     const word = key
     const translations = this.items[key]
 
@@ -21,14 +21,14 @@ class FavoritesCache extends Cache {
     }
   }
 
-  addToFavorites(word, translations) {
+  add(word, translations) {
     const items = this.items
 
     items[word] = translations
     super.set(items)
   }
 
-  removeFromFavorites(word) {
+  remove(word) {
     const items = this.items
 
     delete items[word]
@@ -52,18 +52,18 @@ class FavoritesCache extends Cache {
       }
 
       const key = keys[idx]
-      const outputItem = this.getOutputItem(key)
+      const outputItem = this._getOutputItem(key)
       favoritesList.push(outputItem)
     }
 
     return favoritesList
   }
 
-  findInFavorites(userInput) {
+  filterBy(userInput) {
     const keys = this.keys
     const matches = keys.filter(key => key.includes(userInput))
 
-    return matches.map(key => this.getOutputItem(key))
+    return matches.map(key => this._getOutputItem(key))
   }
 }
 

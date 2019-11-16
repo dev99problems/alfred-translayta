@@ -12,7 +12,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>41CD4126-6FC9-49EF-80B2-18FE27937E3E</string>
+				<string>45D6F7D3-89A4-44CB-B720-08A5C9AD4DD2</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -130,7 +130,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>./node_modules/.bin/run-node src/commands/add-to-favorites.js "$1"</string>
+				<string>./node_modules/.bin/run-node src/commands/favorites-operations.js "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -263,7 +263,7 @@
 						<key>matchmode</key>
 						<integer>0</integer>
 						<key>matchstring</key>
-						<string>add to favorites</string>
+						<string>add</string>
 						<key>outputlabel</key>
 						<string>add to favorites</string>
 						<key>uid</key>
@@ -385,7 +385,7 @@
 				<key>font</key>
 				<string></string>
 				<key>largetypetext</key>
-				<string>edit {var:word}</string>
+				<string>{var:action} / {var:word}</string>
 				<key>textcolor</key>
 				<string></string>
 			</dict>
@@ -444,51 +444,51 @@
 		<key>088624A7-97FF-4769-8F6A-16AFD066B829</key>
 		<dict>
 			<key>xpos</key>
-			<integer>640</integer>
+			<integer>645</integer>
 			<key>ypos</key>
-			<integer>245</integer>
+			<integer>330</integer>
 		</dict>
 		<key>41CD4126-6FC9-49EF-80B2-18FE27937E3E</key>
 		<dict>
 			<key>xpos</key>
-			<integer>765</integer>
+			<integer>890</integer>
 			<key>ypos</key>
-			<integer>165</integer>
+			<integer>235</integer>
 		</dict>
 		<key>45D6F7D3-89A4-44CB-B720-08A5C9AD4DD2</key>
 		<dict>
 			<key>xpos</key>
-			<integer>490</integer>
+			<integer>800</integer>
 			<key>ypos</key>
-			<integer>110</integer>
+			<integer>100</integer>
 		</dict>
 		<key>7BC8A4FC-83CD-4D60-AD7C-D624DF520283</key>
 		<dict>
 			<key>xpos</key>
-			<integer>765</integer>
+			<integer>770</integer>
 			<key>ypos</key>
-			<integer>415</integer>
+			<integer>500</integer>
 		</dict>
 		<key>927883E1-51F5-4F34-A42C-F9A6FD8F8832</key>
 		<dict>
 			<key>xpos</key>
-			<integer>40</integer>
+			<integer>45</integer>
 			<key>ypos</key>
-			<integer>185</integer>
+			<integer>270</integer>
 		</dict>
 		<key>A2458C7B-25F5-4BAF-ACD9-44D67FEDB9C1</key>
 		<dict>
 			<key>xpos</key>
-			<integer>490</integer>
+			<integer>495</integer>
 			<key>ypos</key>
-			<integer>240</integer>
+			<integer>325</integer>
 		</dict>
 		<key>B91898D4-5C6F-4DD2-88D9-0FFE54910914</key>
 		<dict>
 			<key>xpos</key>
-			<integer>190</integer>
+			<integer>195</integer>
 			<key>ypos</key>
-			<integer>185</integer>
+			<integer>270</integer>
 		</dict>
 		<key>D7E3FB00-2F7B-494D-B5A6-75EF5A7C01C0</key>
 		<dict>
@@ -500,16 +500,16 @@
 		<key>DC14DECC-523B-432F-AD6F-CEA188218F07</key>
 		<dict>
 			<key>xpos</key>
-			<integer>345</integer>
+			<integer>350</integer>
 			<key>ypos</key>
-			<integer>205</integer>
+			<integer>290</integer>
 		</dict>
 		<key>DDABEFD0-9304-45B6-AF09-E31F02297E68</key>
 		<dict>
 			<key>xpos</key>
-			<integer>765</integer>
+			<integer>770</integer>
 			<key>ypos</key>
-			<integer>285</integer>
+			<integer>370</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>

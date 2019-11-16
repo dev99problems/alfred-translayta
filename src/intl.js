@@ -22,5 +22,21 @@ exports.intl = {
   noSearchResults: {
     ru: 'По вашему запросу ничего не найдено',
     en: 'No results found'
+  },
+  removeAction: {
+    ru: 'удалить',
+    en: 'remove'
+  },
+  editAction: {
+    ru: 'редактировать',
+    en: 'edit'
+  },
+  removeActionTip: {
+    ru: 'удалит ваше слово из избранных',
+    en: 'will remove the word from your favorites'
+  },
+  editActionTip: {
+    ru: 'позволит редактировать перевод слова',
+    en: "let's you to change translation of the word"
   }
 }
