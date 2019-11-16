@@ -1,4 +1,5 @@
 const { Cache } = require('./cache')
+const { createArgWithParams } = require('../utils.js')
 
 class FavoritesCache extends Cache {
   get items() {
@@ -10,9 +11,13 @@ class FavoritesCache extends Cache {
   }
 
   getOutputItem(key) {
+    const word = key
+    const translations = this.items[key]
+
     return {
-      title: key,
-      subtitle: this.items[key]
+      title: word,
+      subtitle: translations,
+      arg: createArgWithParams('remove or edit', word, translations)
     }
   }
 

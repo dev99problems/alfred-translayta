@@ -1,4 +1,5 @@
 const { intl } = require('./intl')
+const { createArgWithParams } = require('./utils.js')
 
 exports.addToFavoritesAction = (
   userInput,
@@ -9,19 +10,11 @@ exports.addToFavoritesAction = (
   return {
     title: intl.addToFavorite[targetLang],
     icon: { path: './icons/bookmark.png' },
-    arg: createArgs()
-  }
-
-  function createArgs() {
-    return JSON.stringify({
-      alfredworkflow: {
-        variables: {
-          action: 'favorite',
-          word: userInput,
-          translations: pickBestTranslations()
-        }
-      }
-    })
+    arg: createArgWithParams(
+      'add to favorites',
+      userInput,
+      pickBestTranslations()
+    )
   }
 
   function pickBestTranslations() {

@@ -49,3 +49,11 @@ const normalizeOtherTranslations = otherTranslations =>
       [partOfSpeech]: translationVariants
     }
   }, {})
+
+// NOTE: instead of using JSON.stringify, we use these methods
+// with hope to avoid perf issues
+exports.createArgWithAction = action =>
+  `{"alfredworkflow":{"variables":{"action":"${action}"}}}`
+exports.createArgWithParams = (action, word, translations) => {
+  return `{"alfredworkflow":{"variables":{"action":"${action}","word":"${word}","translations":"${translations}"}}}`
+}
