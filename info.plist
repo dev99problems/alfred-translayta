@@ -169,7 +169,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>./node_modules/.bin/run-node src/commands/favorites-operations.js "$1"</string>
+				<string>./node_modules/.bin/run-node src/update-favorites.js "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -320,7 +320,7 @@
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>./node_modules/.bin/run-node src/fav-actions.js "$1"</string>
+				<string>./node_modules/.bin/run-node src/commands/remove-edit-favorites.js "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -428,7 +428,7 @@
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>./node_modules/.bin/run-node src/fav-edit.js "$1"</string>
+				<string>./node_modules/.bin/run-node src/commands/edit-favorites.js "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>

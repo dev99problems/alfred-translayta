@@ -1,9 +1,9 @@
 const alfy = require('alfy')
 
-const { getTranslationSource } = require('./translation-direction.js')
-const { createArgWithAction } = require('./utils.js')
-const { favoritesOperations } = require('./const.js')
-const { intl } = require('./intl.js')
+const { getTranslationSource } = require('../translation-direction.js')
+const { createArgWithAction } = require('../utils.js')
+const { favoritesOperations } = require('../const.js')
+const { intl } = require('../intl.js')
 
 const { word, translations } = process.env
 
