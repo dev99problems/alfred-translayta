@@ -38,5 +38,13 @@ exports.intl = {
   editActionTip: {
     ru: 'позволит редактировать перевод слова',
     en: "let's you to change translation of the word"
+  },
+  saveAction: {
+    ru: 'сохранить',
+    en: 'save'
+  },
+  saveActionTip: {
+    ru: 'сохранит обновленный перевод',
+    en: 'save updated translation'
   }
 }

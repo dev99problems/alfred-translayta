@@ -1,6 +1,8 @@
 const alfy = require('alfy')
 
-const { showLastTranslation } = require('./src/commands/show-last-translation')
+const {
+  showLastTranslation
+} = require('./src/commands/show-last-translation.js')
 const { showFavorites } = require('./src/commands/show-favorites.js')
 const { searchInFavorites } = require('./src/commands/search-in-favorites.js')
 const { translate } = require('./src/commands/translate.js')

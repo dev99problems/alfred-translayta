@@ -17,8 +17,10 @@ const titles = {
 
 alfy.output([
   {
-    title: word,
-    subtitle: translations
+    title: titles.editAction,
+    subtitle: titles.editTip,
+    icon: { path: './icons/edit.png' },
+    arg: createArgWithAction(favoritesOperations.EDIT)
   },
   {
     title: titles.removeAction,
@@ -27,9 +29,7 @@ alfy.output([
     arg: createArgWithAction(favoritesOperations.REMOVE)
   },
   {
-    title: titles.editAction,
-    subtitle: titles.editTip,
-    icon: { path: './icons/edit.png' },
-    arg: createArgWithAction(favoritesOperations.EDIT)
+    title: word,
+    subtitle: translations
   }
 ])

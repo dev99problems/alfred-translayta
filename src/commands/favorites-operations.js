@@ -9,6 +9,7 @@ const { ADD, EDIT, REMOVE } = favoritesOperations
 
 switch (action) {
   case ADD:
+  case EDIT:
     favoritesCache.add(word, translations)
     break
 
