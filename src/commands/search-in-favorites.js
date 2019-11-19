@@ -1,6 +1,6 @@
-const { getTranslationSource } = require('../translation-direction')
-const { intl } = require('../intl')
-const { favoritesCache } = require('../cache/favorites-cache')
+const { getTranslationSource } = require('../translation-direction.js')
+const { intl } = require('../intl.js')
+const { favoritesCache } = require('../cache/favorites-cache.js')
 
 const emptyListMsg = userInput => {
   const userSrc = getTranslationSource(userInput)

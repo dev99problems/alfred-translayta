@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-const { favoritesCache } = require('../cache/favorites-cache')
+const { favoritesCache } = require('../cache/favorites-cache.js')
 const { favoritesOperations } = require('../const.js')
 
 const { word, translations, action } = process.env

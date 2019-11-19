@@ -1,5 +1,5 @@
-const { lastSearchCache } = require('./cache/last-search-cache')
-const { formatLastSearch } = require('./output')
+const { lastSearchCache } = require('./cache/last-search-cache.js')
+const { formatLastSearch } = require('./output.js')
 
 exports.getLastSearchResults = () => {
   const { prevUserInput, prevOutput = [], prevDestLang } = lastSearchCache.get()

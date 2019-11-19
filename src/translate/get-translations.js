@@ -1,9 +1,9 @@
 const translate = require('@vitalets/google-translate-api')
 
-const { createTranslationsList } = require('./create-translations-list')
-const { translationDirection } = require('../translation-direction')
-const { intl } = require('../intl')
-const { lastSearchCache } = require('../cache/last-search-cache')
+const { createTranslationsList } = require('./create-translations-list.js')
+const { translationDirection } = require('../translation-direction.js')
+const { intl } = require('../intl.js')
+const { lastSearchCache } = require('../cache/last-search-cache.js')
 
 const getTranslations = userInput => {
   const { from, to } = translationDirection(userInput)

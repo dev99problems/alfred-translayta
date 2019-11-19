@@ -1,4 +1,4 @@
-const { favoritesCache } = require('../cache/favorites-cache')
+const { favoritesCache } = require('../cache/favorites-cache.js')
 
 const showFavorites = () => {
   return favoritesCache.getFavorites()

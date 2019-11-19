@@ -1,4 +1,4 @@
-const { Cache } = require('./cache')
+const { Cache } = require('./cache.js')
 const { createArgWithParams } = require('../utils.js')
 
 class FavoritesCache extends Cache {

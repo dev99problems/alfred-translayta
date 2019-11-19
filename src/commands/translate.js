@@ -1,4 +1,4 @@
-const { getTranslations } = require('../translate/get-translations')
+const { getTranslations } = require('../translate/get-translations.js')
 
 const translate = userInput => {
   return getTranslations(userInput)
