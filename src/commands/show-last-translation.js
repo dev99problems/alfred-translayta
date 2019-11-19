@@ -1,7 +1,3 @@
-const { getTranslations } = require('../translate/get-translations.js')
+const { getLastSearchResults } = require('../get-last-search-results')
 
-const showLastTranslation = userInput => {
-  return getTranslations(userInput)
-}
-
-exports.showLastTranslation = showLastTranslation
+exports.showLastTranslation = getLastSearchResults
