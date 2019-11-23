@@ -3,28 +3,31 @@ const alfy = require('alfy')
 const { getTranslationSource } = require('../translation-direction.js')
 const { createArgWithAction } = require('../utils.js')
 const { favoritesOperations } = require('../const.js')
-const { intl } = require('../intl.js')
+const { getActionTranslations } = require('../intl.js')
 
 const { word, translations } = process.env
 
 const srcLang = getTranslationSource(word)
-const titles = {
-  removeAction: `/${intl.removeAction[srcLang]}`,
-  removeTip: intl.removeActionTip[srcLang],
-  editAction: `/${intl.editAction[srcLang]}`,
-  editTip: intl.editActionTip[srcLang]
-}
+
+const { action: editAction, actionTip: editActionTip } = getActionTranslations(
+  'edit',
+  srcLang
+)
+const {
+  action: removeAction,
+  actionTip: removeActionTip
+} = getActionTranslations('remove', srcLang)
 
 alfy.output([
   {
-    title: titles.editAction,
-    subtitle: titles.editTip,
+    title: editAction,
+    subtitle: editActionTip,
     icon: { path: './icons/edit.png' },
     arg: createArgWithAction(favoritesOperations.EDIT)
   },
   {
-    title: titles.removeAction,
-    subtitle: titles.removeTip,
+    title: removeAction,
+    subtitle: removeActionTip,
     icon: { path: './icons/remove.png' },
     arg: createArgWithAction(favoritesOperations.REMOVE)
   },

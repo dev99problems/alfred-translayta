@@ -1,4 +1,4 @@
-const { intl } = require('./intl')
+const { intl, getActionTranslations } = require('./intl')
 const { createArgWithParams } = require('./utils.js')
 const { favoritesOperations } = require('./const.js')
 
@@ -8,8 +8,14 @@ exports.addToFavoritesAction = (
   otherTranslations,
   targetLang
 ) => {
+  const { action, actionTip } = getActionTranslations(
+    'addToFavorites',
+    targetLang
+  )
+
   return {
-    title: intl.addToFavorite[targetLang],
+    title: action,
+    subtitle: actionTip,
     icon: { path: './icons/bookmark.png' },
     arg: createArgWithParams(
       favoritesOperations.ADD,
