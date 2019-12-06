@@ -8,6 +8,7 @@ Alfred Translayta is a workflow for Alfred, which let's you easily get translati
 * **auto language detection** — `Simply start typing, no need to set translate direction.`
 * **autocorrection** of user input. `Mistype something? No need to retype.`
 * **add/delete/edit** words to your list of **favorites**. `Save words. Learn them even when you are offline.`
+* **favorites in "learning mode"**. `Open your favorites without translations. Get translation of each word on demand.`
 * **auto save** of your  favorites list **into a file**. `Add words to favorites and have them backuped in a separate file.`
 
 ## Prerequisites
@@ -28,17 +29,20 @@ Or instead press `Cmd+Shift+K` and get directly to main workflow window.
   - start typing to get translations.
 * **to get previous translation from cache**: 
   - open Alfred and type `t` and press twice `spacebar`. 
-  - OR press `Cmd+Shift+K` and enter `spacebar`
+  - OR press `Cmd+Shift+K` and press `spacebar`
 * **access to favorites**: 
   - open Alfred and type `t  .` 
-  - OR press `Cmd+Shift+J` 
   - OR `Cmd+Shift+K` and type `.`
+* **show favorites without translations**: 
+  - open Alfred and type `t  ..` 
+  - OR `Cmd+Shift+K` and type `..`
+  - by pressing `Alt` button you can see translations of selected word
 
 **List of default HotKeys:**
 
 `Cmd+Shift+K` — open workflow main window
 
-`Cmd+Shift+J` — open favorites list
+`Cmd+Shift+J` — open favorites list (shortcut for `Cmd+Shift+K` + and entered `.`)
 
 
 ## How it is different

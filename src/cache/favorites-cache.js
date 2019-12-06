@@ -1,3 +1,4 @@
+const { config } = require('../config/config.js')
 const { Cache } = require('./cache.js')
 const { createArgWithParams } = require('../utils.js')
 
@@ -11,13 +12,19 @@ class FavoritesCache extends Cache {
   }
 
   _getOutputItem(key) {
+    const withSubtitle = config.get('withSubtitle')
     const word = key
     const translations = this.items[key]
 
     return {
       title: word,
-      subtitle: translations,
-      arg: createArgWithParams('remove or edit', word, translations)
+      subtitle: withSubtitle ? translations : '',
+      arg: createArgWithParams('remove or edit', word, translations),
+      mods: {
+        alt: {
+          subtitle: !withSubtitle ? translations : ''
+        }
+      }
     }
   }
 
