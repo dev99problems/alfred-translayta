@@ -10,25 +10,25 @@ const { translate } = require('./src/commands/translate.js')
 
 const userInput = (process.argv[2] || '').trim()
 
-const isInputEmpty = !Boolean(userInput.length)
-const isFavorites = userInput === '.'
-const isFavoritesWithoutTranslations = userInput === '..'
-const isFavoritesSearch = userInput.startsWith('.') && !isFavorites
+const previousMode = !Boolean(userInput.length)
+const showFavoritesMode = userInput === '.'
+const learnFavoritesMode = userInput === '..'
+const searchInFavoritesMode = userInput.startsWith('.') && !showFavoritesMode
 
 // NOTE: even though seems like top level await landed in node v10.x
 // we use async iife here
 !(async () => {
   let output
 
-  if (isInputEmpty) {
+  if (previousMode) {
     output = showLastTranslation()
-  } else if (isFavorites) {
+  } else if (showFavoritesMode) {
     config.set('withSubtitle', true)
     output = showFavorites()
-  } else if (isFavoritesWithoutTranslations) {
+  } else if (learnFavoritesMode) {
     config.set('withSubtitle', false)
     output = showFavorites()
-  } else if (isFavoritesSearch) {
+  } else if (searchInFavoritesMode) {
     output = searchInFavorites(userInput)
   } else {
     output = await translate(userInput)

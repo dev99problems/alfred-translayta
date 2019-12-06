@@ -11,8 +11,7 @@ class FavoritesCache extends Cache {
     return Object.keys(this.items).reverse()
   }
 
-  _getOutputItem(key) {
-    const withSubtitle = config.get('withSubtitle')
+  _getOutputItem(key, withSubtitle = config.get('withSubtitle')) {
     const word = key
     const translations = this.items[key]
 
