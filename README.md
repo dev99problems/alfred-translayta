@@ -65,6 +65,7 @@ Based on [Alfy](https://github.com/sindresorhus/alfy) and [google-translate-api]
 
 ### Visual
 All icons are taken from [flaticon.com](https://www.flaticon.com/) and thanks to all authors listed below:
+
 Icon | Author
 -----| -----
 ![globe](/icons/globe.png) | [Icongeek26](https://www.flaticon.com/authors/icongeek26)
