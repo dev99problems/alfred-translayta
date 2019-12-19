@@ -1,7 +1,7 @@
 {
   "name": "alfred-translayta",
-  "version": "0.0.1",
-  "description": "Alfred Translayta is a workflow for Alfred, which let's you easily get translation for en-ru, ru-en pairs.",
+  "version": "1.0.0",
+  "description": "alfred-translayta is Alfred workflow, which let's you translate in ru-en & en-ru directions, save words to favorites.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,11 @@
     "type": "git",
     "url": "git+ssh@github.com:eugenechu/alfred-translayta.git"
   },
-  "author": "Eugene Chulkov",
+  "author": {
+    "name": "Eugene Chulkov",
+    "email": "genechulkov@gmail.com",
+    "url": "twitter.com/yourhem"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/eugenechu/alfred-translayta/issues"
