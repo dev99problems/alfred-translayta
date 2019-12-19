@@ -1,9 +1,11 @@
 {
   "name": "alfred-translayta",
   "version": "1.0.0",
-  "description": "alfred-translayta is Alfred workflow, which let's you translate in ru-en & en-ru directions, save words to favorites.",
+  "description": "Alfred workflow, which let's you translate in ru-en & en-ru directions, save words to favorites.",
   "main": "index.js",
   "scripts": {
+    "postinstall": "alfy-init",
+    "preuninstall": "alfy-cleanup",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
