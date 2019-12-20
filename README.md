@@ -5,7 +5,7 @@
 Alfred Translayta is a workflow for Alfred, which let's you easily get translation for en-ru, ru-en pairs, add words to favorites and have convenient way to review and memorize them later.
 
 ## Features
-* **auto language detection** — `Simply start typing, no need to set translate direction.`
+* **auto language detection** — `Simply start typing(or select text in MacOS), no need to set translate direction.`
 * **autocorrection** of user input. `Mistype something? No need to retype.`
 * **add/delete/edit** words to your list of **favorites**. `Save words. Learn them even when you are offline.`
 * **favorites in "learning mode"**. `Open your favorites without translations. Get translation of each word on demand.`
@@ -59,11 +59,11 @@ Moreover, `favorites` was the main feature I needed so bad. There are plenty of 
 
 ## Testimonials
 
-### Tech
+**Tech**
 Inspired by [alfred-translate](https://github.com/podgorniy/alfred-translate) and [alfred-polyglot](https://github.com/nikersify/alfred-polyglot).
 Based on [Alfy](https://github.com/sindresorhus/alfy) and [google-translate-api](https://github.com/vitalets/google-translate-api) 
 
-### Visual
+**Visual** 
 All icons are taken from [flaticon.com](https://www.flaticon.com/) and thanks to all authors listed below:
 
 Icon | Author
