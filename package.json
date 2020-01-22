@@ -1,7 +1,7 @@
 {
   "name": "alfred-translayta",
   "version": "1.0.0",
-  "description": "Alfred workflow, which let's you translate in ru-en & en-ru directions, save words to favorites.",
+  "description": "Alfred workflow, which translates in ru-en/en-ru directions, save words to favorites.",
   "main": "index.js",
   "scripts": {
     "postinstall": "alfy-init",
@@ -15,7 +15,7 @@
   "author": {
     "name": "Eugene Chulkov",
     "email": "genechulkov@gmail.com",
-    "url": "twitter.com/yourhem"
+    "url": "https://twitter.com/yourhem"
   },
   "license": "MIT",
   "bugs": {
