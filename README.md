@@ -2,7 +2,9 @@
 
 > **Translate** with Google Translate in Alfred (*en-ru* / *ru-en*). **Save** to favorites. **Learn** unhandy words.
 
-Alfred Translayta is an Alfred workflow, which let's you easily get translation for en-ru, ru-en pairs, add words to favorites and have convenient way to review and memorize them later.
+![](screenshots/dir.jpg)
+
+Alfred Translayta is an Alfred workflow, which let's you easily translate en-ru, ru-en pairs, add words to favorites and have convenient way to review and memorize them later.
 
 ## Features
 ### Translation
@@ -15,6 +17,7 @@ Alfred Translayta is an Alfred workflow, which let's you easily get translation 
 * Add/Edit/Delete into favorites
 * Switch to learning mode
 * Search in normal/learning mode 
+* Auto save favorites to a file on disk
 
 ## Prerequisites
 You need [Node.js 8+](https://nodejs.org) and Alfred 3 or 4 with the paid [Powerpack](https://www.alfredapp.com/powerpack/) upgrade.
@@ -25,30 +28,32 @@ $ npm install --global alfred-translayta
 ```
 
 ## Usage
-Open Alfred, press `t` and enter word or phrase you want to translate in russian or english.
-Or instead press `Cmd+Shift+K` and get directly to main workflow window.
 
-**How to use:**
-* **for translation**: 
-  - open Alfred and type `t` **or** press `Cmd+Shift+K`
-  - start typing to get translations.
+Open Alfred and type `t` **or** press `Cmd+Shift+K` and:
+* **to get translation**:  
+  - start typing words or phrases in english or russian
 * **to get previous translation from cache**: 
-  - open Alfred type `t` **or** press `Cmd+Shift+K`
   - press `spacebar`
 * **access to favorites**: 
-  - open Alfred type `t` **or** press `Cmd+Shift+K`
   - type `.`
-* **show favorites without translations**: 
-  - open Alfred type `t` **or** press `Cmd+Shift+K`
+* **show favorites without translations(aka "learning mode")**: 
   - type `..`
   - by pressing `Alt` button you can see translations of selected word
 
-**List of default HotKeys:**
+## HotKeys
 
-`Cmd+Shift+K` — open workflow main window
+`Cmd+Shift+K` — to open workflow main window
 
-`Cmd+Shift+J` — open favorites list (shortcut for `Cmd+Shift+K` + and entered `.`)
+`Cmd+Shift+J` — to open favorites list (shortcut for `Cmd+Shift+K` + and entered `.`)
 
+
+## Screenshots
+
+![](screenshots/direction.jpg)
+
+![](screenshots/previous-and-autocorrection.jpg)
+
+![](screenshots/learning-mode.jpg)
 
 ## How it is different
 There are a lot of more popular alfred workflows for translation.
@@ -60,7 +65,7 @@ I really like 2 of them:
 
 **Why another solution?** It was an idea to mix both solutions and to get the best features of each: auto lang. detection, multiple options for translation and of course `favorites list`.
 
-Moreover, `favorites` was the main feature I needed so bad. There are plenty of difficult words for me, which I translate over and over and still can't remember their meaning. Instead I would really like to have a place for all these words, which I could access even when my laptop is offline. So here it is!
+Moreover, `favorites` was the main feature I needed so bad. There are plenty of difficult words for me, `which I translate over and over and still can't remember their meaning and translation`. Instead I would really like to have a place for all these words, which I could access even when my laptop is offline. So here it is!
 
 ## Testimonials
 
