@@ -17,6 +17,13 @@
     "email": "genechulkov@gmail.com",
     "url": "https://twitter.com/yourhem"
   },
+  "keywords": [
+    "alfred",
+    "alfy",
+    "translate",
+    "alfred-translate",
+    "alfred-translayta"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/eugenechu/alfred-translayta/issues"
