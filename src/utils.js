@@ -58,3 +58,8 @@ exports.createArgWithAction = action =>
 exports.createArgWithParams = (action, word, translations) => {
   return `{"alfredworkflow":{"variables":{"action":"${action}","word":"${word}","translations":"${translations}"}}}`
 }
+
+exports.isObjEmpty = obj =>
+  obj === undefined ||
+  obj === null ||
+  (typeof obj === 'object' && Object.keys(obj).length === 0)

@@ -50,7 +50,24 @@ const intl = {
   saveActionTip: {
     ru: 'сохранит обновленный перевод',
     en: 'save updated translation'
+  },
+  importAction: {
+    ru: 'имортировать избранное',
+    en: 'import favorites'
+  },
+  importActionTip: {
+    ru: 'из файла favorites.json и !!!полностью заменит текущий кэш!!!',
+    en:
+      'from file favorites.json and !!!completely replace current workflow cache!!!'
   }
+  /*  exportAction: {
+    ru: 'экспортировать избранное',
+    en: 'export favorites'
+  },
+  exportActionTip: {
+    ru: 'экспортирует данные в файл в формате .json',
+    en: 'exports data to file as .json'
+  }*/
 }
 
 const getActionTranslations = (action, lang) => {

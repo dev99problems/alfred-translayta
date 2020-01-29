@@ -41,18 +41,23 @@ class FavoritesCache extends Cache {
     super.set(items)
   }
 
+  clear() {
+    super.reset()
+  }
+
   getFavorites() {
+    const blockSize = 7
     const keys = this.keys
     const keysCount = keys.length
     const favoritesList = []
 
     for (let idx = 0; idx < keysCount; idx++) {
-      const blockSize = 7
       if (idx && !(idx % blockSize)) {
         let lastIndex = idx + blockSize
         if (lastIndex > keysCount) {
           lastIndex = keysCount
         }
+
         const subtitle = `${idx + 1}—${lastIndex} ⤵️`
         favoritesList.push({ title: ' ', subtitle, icon: { path: ' ' } })
       }
