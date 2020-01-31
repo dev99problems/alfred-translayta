@@ -17,12 +17,19 @@
     "email": "genechulkov@gmail.com",
     "url": "https://twitter.com/yourhem"
   },
+  "engines": {
+    "node": ">=8"
+  },
   "keywords": [
     "alfred",
     "alfy",
     "translate",
     "alfred-translate",
-    "alfred-translayta"
+    "alfred-translayta",
+    "workflow",
+    "mac",
+    "macos",
+    "osx"
   ],
   "license": "MIT",
   "bugs": {
