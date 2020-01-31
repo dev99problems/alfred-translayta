@@ -1,6 +1,8 @@
+const alfy = require('alfy')
+
 const { config } = require('../config/config.js')
-const { Cache } = require('./cache.js')
 const { createArgWithParams } = require('../utils.js')
+const { Cache } = require('./cache.js')
 
 class FavoritesCache extends Cache {
   get items() {
@@ -78,4 +80,4 @@ class FavoritesCache extends Cache {
   }
 }
 
-exports.favoritesCache = new FavoritesCache('favorites')
+exports.favoritesCache = new FavoritesCache('favorites', alfy.cache)

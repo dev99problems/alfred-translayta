@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "alfy-init",
     "preuninstall": "alfy-cleanup",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava -v"
   },
   "repository": {
     "type": "git",
@@ -42,13 +42,16 @@
     "lodash.get": "^4.4.2"
   },
   "devDependencies": {
+    "alfy-test": "^0.4.0",
+    "ava": "^3.1.0",
     "husky": "^3.0.8",
     "lint-staged": "^9.4.1",
     "prettier": "^1.18.2"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn test"
     }
   },
   "lint-staged": {

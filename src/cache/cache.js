@@ -1,16 +1,20 @@
-const alfy = require('alfy')
+const cacheMock = {
+  set: () => {},
+  get: () => {}
+}
 
 class Cache {
-  constructor(name) {
+  constructor(name, cache = cacheMock) {
     this.cacheName = name
+    this.cache = cache
   }
 
   set(value) {
-    alfy.cache.set(this.cacheName, value)
+    this.cache.set(this.cacheName, value)
   }
 
   get() {
-    return alfy.cache.get(this.cacheName) || {}
+    return this.cache.get(this.cacheName) || {}
   }
 
   reset() {
