@@ -1,6 +1,6 @@
 {
   "name": "alfred-translayta",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Alfred workflow, which translates in ru-en/en-ru directions, save words to favorites.",
   "main": "index.js",
   "scripts": {
