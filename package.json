@@ -1,6 +1,6 @@
 {
   "name": "alfred-translayta",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Alfred workflow, which translates in ru-en/en-ru directions, save words to favorites.",
   "main": "index.js",
   "scripts": {
@@ -15,10 +15,10 @@
   "author": {
     "name": "Eugene Chulkov",
     "email": "genechulkov@gmail.com",
-    "url": "https://twitter.com/yourhem"
+    "url": "https://twitter.com/dev99problems"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=12"
   },
   "keywords": [
     "alfred",
@@ -37,7 +37,7 @@
   },
   "homepage": "https://github.com/eugenechu/alfred-translayta#readme",
   "dependencies": {
-    "@vitalets/google-translate-api": "^3.0.0",
+    "@vitalets/google-translate-api": "^5.0.0",
     "alfy": "^0.9.1",
     "lodash.get": "^4.4.2"
   },

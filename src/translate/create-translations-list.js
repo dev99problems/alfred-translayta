@@ -1,4 +1,4 @@
-const { parseAutoCorrection, normalizeResponse } = require('../utils.js')
+const { parseAutoCorrection, parseRawResponse } = require('../utils.js')
 const {
   addToFavoritesAction,
   formatMainTranslation,
@@ -8,7 +8,7 @@ const {
 
 const createTranslationsList = (response, targetLang, userInput) => {
   const { text: translation, from: translationDetails, raw } = response
-  const { otherTranslations, pronunciation } = normalizeResponse(raw)
+  const { otherTranslations, pronunciation } = parseRawResponse(raw)
 
   const mainTranslation = formatMainTranslation(
     translation,

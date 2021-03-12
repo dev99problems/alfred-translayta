@@ -60,14 +60,6 @@ const intl = {
     en:
       'from file favorites.json and !!!completely replace current workflow cache!!!'
   }
-  /*  exportAction: {
-    ru: 'экспортировать избранное',
-    en: 'export favorites'
-  },
-  exportActionTip: {
-    ru: 'экспортирует данные в файл в формате .json',
-    en: 'exports data to file as .json'
-  }*/
 }
 
 const getActionTranslations = (action, lang) => {

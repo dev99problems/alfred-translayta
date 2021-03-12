@@ -25,10 +25,11 @@ exports.addToFavoritesAction = (
   }
 
   function pickBestTranslations() {
-    return Object.keys(otherTranslations).reduce((acc, partOfSpeech) => {
-      const translations = otherTranslations[partOfSpeech]
-      return `${acc}, ${translations[0]}`
-    }, translation)
+    if (otherTranslations?.length > 1) {
+      const concattedLowercased = otherTranslations.join(', ').toLowerCase()
+      return concattedLowercased.slice(0, concattedLowercased.length - 2)
+    }
+    return otherTranslations[0].toLowerCase()
   }
 }
 
@@ -37,16 +38,10 @@ exports.formatMainTranslation = (translation, pronunciation, targetLang) => ({
   subtitle: intl.bestTranslMsg[targetLang]
 })
 
-exports.formatOtherTranslations = (otherTranslations = {}) =>
-  Object.keys(otherTranslations).reduce((acc, partOfSpeech) => {
-    const translations = otherTranslations[partOfSpeech]
-    const items = translations.map((item, idx) => ({
-      title: item,
-      subtitle: idx === 0 ? `${partOfSpeech} ⤵️` : ''
-    }))
-
-    return [...acc, ...items]
-  }, [])
+exports.formatOtherTranslations = (otherTranslations = []) =>
+  otherTranslations.splice(1).map(translation => ({
+    title: translation
+  }))
 
 exports.formatAutoCorrection = (correctedValue, targetLang) => {
   const parsedValue = correctedValue.replace(/[\[\]]/g, '')

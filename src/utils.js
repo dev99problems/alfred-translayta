@@ -12,43 +12,21 @@ exports.parseAutoCorrection = translationDetails => {
   }
 }
 
-exports.normalizeResponse = rawApiResponse => {
-  const { otherTranslations, pronunciationDetails } = parseRawResponse(
-    rawApiResponse
-  )
-
-  return {
-    otherTranslations: normalizeOtherTranslations(otherTranslations),
-    pronunciation: normalizePronunciation(pronunciationDetails)
-  }
-}
-
-const parseRawResponse = rawApiResponse => {
+exports.parseRawResponse = rawApiResponse => {
   try {
-    const parsedResponse = JSON.parse(rawApiResponse) || []
+    const parsedResponse = rawApiResponse || []
+
     return {
-      otherTranslations: _get(parsedResponse, '[1]') || [],
-      pronunciationDetails: _get(parsedResponse, '[0][1]')
+      otherTranslations: _get(parsedResponse, '[1][0][0][5][0][1]') || [],
+      pronunciation: _get(parsedResponse, '[0][0]')
     }
   } catch (err) {
-    console.error(`Error while parsing apiResponse: ${err}`)
+    console.error(
+      `JError -> parseRawResponse: Error while parsing apiResponse: ${err}`
+    )
     return {}
   }
 }
-
-const normalizePronunciation = (pronunciationDetails = []) =>
-  _get(pronunciationDetails, '[3]')
-
-const normalizeOtherTranslations = otherTranslations =>
-  otherTranslations.reduce((acc, translation) => {
-    const partOfSpeech = _get(translation, '[0]')
-    const translationVariants = _get(translation, '[1]')
-
-    return {
-      ...acc,
-      [partOfSpeech]: translationVariants
-    }
-  }, {})
 
 // NOTE: instead of using JSON.stringify, we use these methods
 // with intention to avoid possible perf issues
