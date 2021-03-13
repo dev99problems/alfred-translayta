@@ -1,6 +1,4 @@
-const test = require('ava')
-
-const { createArgWithAction, createArgWithParams } = require('../src/utils.js')
+const { createArgWithAction, createArgWithParams } = require('../utils.js')
 
 const setup = variables => ({
   alfredworkflow: {
@@ -8,31 +6,28 @@ const setup = variables => ({
   }
 })
 
-test('createArgWithAction properly convert workflow variables into string', t => {
-  t.is(
-    createArgWithAction('import'),
+test('createArgWithAction: properly convert workflow variables into string', () => {
+  expect(createArgWithAction('import')).toBe(
     `{"alfredworkflow":{"variables":{"action":"import"}}}`
   )
 
   const workflow = setup({ action: 'import' })
 
-  t.is(JSON.stringify(workflow), createArgWithAction('import'))
+  expect(JSON.stringify(workflow)).toBe(createArgWithAction('import'))
 })
 
-test('createArgWithParams properly convert workflow variables into string', t => {
+test('createArgWithParams: properly convert workflow variables into string', () => {
   const action = 'remove or edit'
   const word = 'embrace'
   const translations = 'охватывать, обнимать'
 
-  t.is(
-    createArgWithParams(action, word, translations),
+  expect(createArgWithParams(action, word, translations)).toBe(
     `{"alfredworkflow":{"variables":{"action":"${action}","word":"${word}","translations":"${translations}"}}}`
   )
 
   const workflow = setup({ action, word, translations })
 
-  t.is(
-    JSON.stringify(workflow),
+  expect(JSON.stringify(workflow)).toBe(
     createArgWithParams(action, word, translations)
   )
 })
