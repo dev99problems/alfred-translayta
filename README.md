@@ -1,5 +1,8 @@
 # alfred-translayta
 
+<a src="https://www.npmjs.com/package/alfred-translayta"><img src="https://img.shields.io/npm/v/alfred-translayta?color=yellow" /></a>
+
+
 > **Translate** with Google Translate in Alfred (*en-ru* / *ru-en*). **Save** to favorites. **Learn** unhandy words.
 
 ![](screenshots/dir.jpg)
