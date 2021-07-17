@@ -1,0 +1,29 @@
+name: Unit tests
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    name: Testing
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup node.js v14.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install deps and test
+        run: |
+          echo "Node version:"
+          node --version
+          echo "npm version:"
+          npm --version
+          echo "yarn version:"
+          yarn --version
+          yarn --ignore-scripts
+          yarn test:cov
