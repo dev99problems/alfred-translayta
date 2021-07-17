@@ -1,7 +1,7 @@
-const _get = require('lodash.get')
+const get = require('lodash.get')
 
 exports.parseAutoCorrection = translationDetails => {
-  const { autoCorrected, value, didYouMean } = _get(
+  const { autoCorrected, value, didYouMean } = get(
     translationDetails,
     'text',
     {}
@@ -15,10 +15,14 @@ exports.parseAutoCorrection = translationDetails => {
 exports.parseRawResponse = rawApiResponse => {
   try {
     const parsedResponse = rawApiResponse || []
+    const otherTranslationsRaw = get(parsedResponse, '[3][5][0][0][1]') || []
+    const pronunciation = get(parsedResponse, '[0][0]')
 
     return {
-      otherTranslations: _get(parsedResponse, '[1][0][0][5][0][1]') || [],
-      pronunciation: _get(parsedResponse, '[0][0]')
+      otherTranslations: otherTranslationsRaw.map(translation =>
+        get(translation, '0')
+      ),
+      pronunciation
     }
   } catch (err) {
     console.error(

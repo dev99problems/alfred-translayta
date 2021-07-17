@@ -1,6 +1,8 @@
+var get = require('lodash.get')
+
 const { intl, getActionTranslations } = require('./intl')
-const { createArgWithParams } = require('./utils.js')
-const { favoritesOperations } = require('./const.js')
+const { createArgWithParams } = require('./utils')
+const { favoritesOperations } = require('./const')
 
 exports.addToFavoritesAction = (
   userInput,
@@ -26,10 +28,13 @@ exports.addToFavoritesAction = (
 
   function pickBestTranslations() {
     if (otherTranslations?.length > 1) {
-      const concattedLowercased = otherTranslations.join(', ').toLowerCase()
-      return concattedLowercased.slice(0, concattedLowercased.length - 2)
+      const concated = otherTranslations.join(', ').toLowerCase()
+      return concated
     }
-    return otherTranslations[0].toLowerCase()
+
+    const firstTranslation = get(otherTranslations, '0') || ''
+
+    return firstTranslation.toLowerCase()
   }
 }
 
