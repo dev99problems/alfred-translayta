@@ -6,7 +6,8 @@
   "scripts": {
     "postinstall": "alfy-init",
     "preuninstall": "alfy-cleanup",
-    "test": "jest"
+    "test": "node_modules/.bin/jest --config=jest.config.js",
+    "test:cov": "yarn test --collectCoverage=true --collectCoverageFrom=src/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -38,7 +39,7 @@
   "homepage": "https://github.com/eugenechu/alfred-translayta#readme",
   "dependencies": {
     "@vitalets/google-translate-api": "^5.0.0",
-    "alfy": "^0.9.1",
+    "alfy": "0.11.1",
     "lodash.get": "^4.4.2"
   },
   "devDependencies": {

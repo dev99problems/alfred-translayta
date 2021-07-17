@@ -191,7 +191,7 @@
 		</array>
 	</dict>
 	<key>createdby</key>
-	<string>Eugene Chulkov(@yourhem)</string>
+	<string>Eugene Chulkov(@dev99problems)</string>
 	<key>description</key>
 	<string>Google Translator for en-ru, ru-en, save to favorites</string>
 	<key>disabled</key>
@@ -536,6 +536,8 @@
 				<true/>
 				<key>clipboardtext</key>
 				<string>{var:translations}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
 				<key>transient</key>
 				<false/>
 			</dict>
@@ -633,6 +635,8 @@
 				<false/>
 				<key>clipboardtext</key>
 				<string>{var:word}, {var:translations}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
 				<key>transient</key>
 				<false/>
 			</dict>
@@ -741,6 +745,6 @@
 		</dict>
 	</dict>
 	<key>webaddress</key>
-	<string>https://github.com/eugenechu/alfred-translayta</string>
+	<string>https://github.com/dev99problems/alfred-translayta</string>
 </dict>
 </plist>
