@@ -10,5 +10,6 @@ module.exports = {
   maxWorkers: 2,
   moduleDirectories: ['node_modules'],
   moduleFileExtensions: ['js', 'json'],
-  testEnvironment: 'node'
+  testEnvironment: 'node',
+  testMatch: ['**/__tests__/**/*.test.js', '**/?(*.)+(spec|test).js']
 }
