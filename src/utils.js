@@ -1,5 +1,13 @@
 const get = require('lodash.get')
 
+const parseCorrectedValue = value => {
+  if (typeof value === 'string') {
+    return value.replace(/\[|\]/gi, '')
+  }
+
+  return ''
+}
+
 exports.parseAutoCorrection = translationDetails => {
   const { autoCorrected, value, didYouMean } = get(
     translationDetails,
@@ -8,7 +16,7 @@ exports.parseAutoCorrection = translationDetails => {
   )
   return {
     isAutoCorrected: autoCorrected || didYouMean,
-    correctedValue: value
+    correctedValue: parseCorrectedValue(value)
   }
 }
 

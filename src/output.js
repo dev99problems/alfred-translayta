@@ -4,6 +4,24 @@ const { intl, getActionTranslations } = require('./intl')
 const { createArgWithParams } = require('./utils')
 const { favoritesOperations } = require('./const')
 
+function pickBestTranslations(otherTranslations, translation) {
+  let bestTranslations
+  if (otherTranslations?.length > 1) {
+    const concatenatedMultipleTransl = otherTranslations.join(', ')
+    bestTranslations = concatenatedMultipleTransl
+  } else if (otherTranslations?.length === 1) {
+    const firstTranslation = get(otherTranslations, '0')
+    bestTranslations = firstTranslation
+  } else {
+    bestTranslations = translation
+  }
+
+  return bestTranslations.toLowerCase()
+}
+
+// NOTE, @genechulkov, seems like this should be renamed
+// to smth. more "format" related, like
+// formatAddToFavsAction
 exports.addToFavoritesAction = (
   userInput,
   translation,
@@ -22,19 +40,8 @@ exports.addToFavoritesAction = (
     arg: createArgWithParams(
       favoritesOperations.ADD,
       userInput,
-      pickBestTranslations()
+      pickBestTranslations(otherTranslations, translation)
     )
-  }
-
-  function pickBestTranslations() {
-    if (otherTranslations?.length > 1) {
-      const concated = otherTranslations.join(', ').toLowerCase()
-      return concated
-    }
-
-    const firstTranslation = get(otherTranslations, '0') || ''
-
-    return firstTranslation.toLowerCase()
   }
 }
 
@@ -48,21 +55,17 @@ exports.formatOtherTranslations = (otherTranslations = []) =>
     title: translation
   }))
 
-exports.formatAutoCorrection = (correctedValue, targetLang) => {
-  const parsedValue = correctedValue.replace(/[\[\]]/g, '')
-
-  return {
-    title: parsedValue,
-    subtitle: intl.autoCorrectMsg[targetLang],
-    autocomplete: parsedValue,
-    icon: {
-      path: './icons/question.png'
-    }
+exports.formatAutoCorrection = (correctedValue, targetLang) => ({
+  title: correctedValue,
+  subtitle: intl.autoCorrectMsg[targetLang],
+  autocomplete: correctedValue,
+  icon: {
+    path: './icons/question.png'
   }
-}
+})
 
-exports.formatLastSearch = (lastUserInput, destLang) => ({
+exports.formatLastSearch = (lastUserInput, targetLang) => ({
   title: lastUserInput,
-  subtitle: intl.lastSearch[destLang],
+  subtitle: intl.lastSearch[targetLang],
   icon: { path: './icons/history.png' }
 })
