@@ -1,62 +1,62 @@
 const intl = {
   bestTranslMsg: {
-    ru: 'найболее подходящий перевод',
+    uk: 'накрайщий переклад',
     en: 'best fit translation'
   },
   errMsg: {
-    ru: 'При получении перевода произошла ошибка',
+    uk: 'При обробці перекладу виникла помилка',
     en: 'Error occurred while getting translation'
   },
   autoCorrectMsg: {
-    ru: 'возможно вы имели ввиду ⤴️',
+    uk: 'можливо, ви мали на увазі ⤴️',
     en: 'did you mean ⤴️'
   },
   lastSearch: {
-    ru: 'предыдущий запрос',
+    uk: 'попередній запит',
     en: 'the most recent user search'
   },
   noSearchResults: {
-    ru: 'По вашему запросу ничего не найдено',
+    uk: 'За вашим запитом нічого не знайдено',
     en: 'No results found'
   },
   addToFavoritesAction: {
-    ru: 'добавить в избранное',
+    uk: 'додати в обране',
     en: 'add to favorites'
   },
   addToFavoritesActionTip: {
-    ru: 'получить доступ к списку избранного можно набрав "."',
+    uk: 'переглянути обране можна натиснувши "."',
     en: 'to access favorites list enter "."'
   },
   removeAction: {
-    ru: 'удалить',
+    uk: 'видалити',
     en: 'remove'
   },
   removeActionTip: {
-    ru: 'удалит слово из избранных',
+    uk: 'видалити цей переклад з обраного',
     en: 'will remove the word from your favorites'
   },
   editAction: {
-    ru: 'редактировать',
+    uk: 'редагувати',
     en: 'edit'
   },
   editActionTip: {
-    ru: 'позволит редактировать перевод слова',
+    uk: 'дозволити редагувати переклад',
     en: "let's you to change translation of the word"
   },
   saveAction: {
-    ru: 'сохранить',
+    uk: 'зберегти',
     en: 'save'
   },
   saveActionTip: {
-    ru: 'сохранит обновленный перевод',
+    uk: 'зберегти зміни',
     en: 'save updated translation'
   },
   importAction: {
-    ru: 'имортировать избранное',
+    uk: 'імпортувати обране',
     en: 'import favorites'
   },
   importActionTip: {
-    ru: 'из файла favorites.json и !!!полностью заменит текущий кэш!!!',
+    uk: 'з файлу favorites.json и !!!повністю перетре поточний кеш!!!',
     en:
       'from file favorites.json and !!!completely replace current workflow cache!!!'
   }

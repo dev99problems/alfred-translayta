@@ -8,9 +8,9 @@ describe('intl', () => {
         actionTip: 'to access favorites list enter "."'
       })
 
-      expect(getActionTranslations('addToFavorites', 'ru')).toEqual({
-        action: '/добавить в избранное',
-        actionTip: 'получить доступ к списку избранного можно набрав "."'
+      expect(getActionTranslations('addToFavorites', 'uk')).toEqual({
+        action: '/додати в обране',
+        actionTip: 'переглянути обране можна натиснувши "."'
       })
 
       expect(getActionTranslations('save', 'en')).toEqual({
@@ -18,9 +18,9 @@ describe('intl', () => {
         actionTip: 'save updated translation'
       })
 
-      expect(getActionTranslations('save', 'ru')).toEqual({
-        action: '/сохранить',
-        actionTip: 'сохранит обновленный перевод'
+      expect(getActionTranslations('save', 'uk')).toEqual({
+        action: '/зберегти',
+        actionTip: 'зберегти зміни'
       })
     })
   })
