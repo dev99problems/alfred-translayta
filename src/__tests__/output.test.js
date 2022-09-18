@@ -32,7 +32,7 @@ describe('output', () => {
     describe('pronunciation', () => {
       test('adds "pronunciation" next to translation if there is one', () => {
         // originalInput = 'indeed'
-        const translation = 'верно'
+        const translation = 'вірно'
         const pronunciation = 'inˈdēd'
         const targetLang = 'en'
 
@@ -43,14 +43,14 @@ describe('output', () => {
         )
 
         expect(mainTranslation).toEqual({
-          title: 'верно [inˈdēd]',
+          title: 'вірно [inˈdēd]',
           subtitle: 'best fit translation'
         })
       })
 
       test('returns only translation, if no pronunciation found', () => {
         // originalInput = 'indeed'
-        const translation = 'верно'
+        const translation = 'вірно'
         const pronunciation = undefined
         const targetLang = 'en'
 
@@ -61,18 +61,18 @@ describe('output', () => {
         )
 
         expect(mainTranslation).toEqual({
-          title: 'верно',
+          title: 'вірно',
           subtitle: 'best fit translation'
         })
       })
     })
 
     describe('shows translation and tip in subtitle in "targetLang" and pronunciation in "sourceLang"', () => {
-      test('for en-ru direction', () => {
+      test('for en-uk direction', () => {
         // originalInput = 'dwell'
-        const translation = 'жить'
+        const translation = 'мешкати'
         const pronunciation = 'dwell'
-        const targetLang = 'ru'
+        const targetLang = 'uk'
 
         const mainTranslation = formatMainTranslation(
           translation,
@@ -82,17 +82,17 @@ describe('output', () => {
         const hintLang = getStrLanguage(mainTranslation.subtitle)
 
         expect(mainTranslation).toEqual({
-          title: 'жить [dwell]',
-          subtitle: 'найболее подходящий перевод'
+          title: 'мешкати [dwell]',
+          subtitle: 'накрайщий переклад'
         })
 
-        expect(hintLang).toBe('ru')
+        expect(hintLang).toBe('uk')
       })
 
-      test('for ru-en direction', () => {
-        // originalInput = 'обитать'
+      test('for uk-en direction', () => {
+        // originalInput = 'мешкати'
         const translation = 'dwell'
-        const pronunciation = "obitat'"
+        const pronunciation = 'meshkaty'
         const targetLang = 'en'
 
         const mainTranslation = formatMainTranslation(
@@ -103,7 +103,7 @@ describe('output', () => {
         const hintLang = getStrLanguage(mainTranslation.subtitle)
 
         expect(mainTranslation).toEqual({
-          title: "dwell [obitat']",
+          title: 'dwell [meshkaty]',
           subtitle: 'best fit translation'
         })
 
@@ -116,30 +116,30 @@ describe('output', () => {
     test('prepares other translations to alfy-output format of {title: translation}', () => {
       const translations = [
         'замок',
-        'дворец',
-        'ладья',
-        'твердыня',
-        'рокировка',
-        'убежище'
+        'контейнер',
+        'сховище',
+        'палац',
+        'тура',
+        'фортеця'
       ]
 
       const formattedOtherTranslations = formatOtherTranslations(translations)
 
       expect(formattedOtherTranslations).toEqual([
         {
-          title: 'дворец'
+          title: 'контейнер'
         },
         {
-          title: 'ладья'
+          title: 'сховище'
         },
         {
-          title: 'твердыня'
+          title: 'палац'
         },
         {
-          title: 'рокировка'
+          title: 'тура'
         },
         {
-          title: 'убежище'
+          title: 'фортеця'
         }
       ])
     })
@@ -155,14 +155,14 @@ describe('output', () => {
     test('prepares auto corrected value to alfy-output format', () => {
       // originalInput = 'casle'
       const correctedValue = 'castle'
-      const targetLang = 'ru'
+      const targetLang = 'uk'
 
       const autoCorrectedItem = formatAutoCorrection(correctedValue, targetLang)
       const hintLang = getStrLanguage(autoCorrectedItem.subtitle)
 
       expect(autoCorrectedItem).toEqual({
         title: 'castle',
-        subtitle: 'возможно вы имели ввиду ⤴️',
+        subtitle: 'можливо, ви мали на увазі ⤴️',
         autocomplete: 'castle',
         icon: { path: './icons/question.png' }
       })
@@ -175,14 +175,14 @@ describe('output', () => {
   describe('formatLastSearch', () => {
     test('prepares last searched input to alfy-output format', () => {
       const lastUserInput = 'dog'
-      const targetLang = 'ru'
+      const targetLang = 'uk'
 
       const lastSearchItem = formatLastSearch(lastUserInput, targetLang)
       const hintLang = getStrLanguage(lastSearchItem.subtitle)
 
       expect(lastSearchItem).toEqual({
         title: 'dog',
-        subtitle: 'предыдущий запрос',
+        subtitle: 'попередній запит',
         icon: { path: './icons/history.png' }
       })
 
@@ -197,13 +197,13 @@ describe('output', () => {
       const translation = 'замок'
       const otherTranslations = [
         'замок',
-        'дворец',
-        'ладья',
-        'твердыня',
-        'рокировка',
-        'убежище'
+        'контейнер',
+        'сховище',
+        'палац',
+        'тура',
+        'фортеця'
       ]
-      const targetLang = 'ru'
+      const targetLang = 'uk'
 
       const addToFavsItem = addToFavoritesAction(
         userInput,
@@ -219,11 +219,11 @@ describe('output', () => {
       console.log('otherTranslationsInArg', otherTranslationsInArg)
 
       expect(addToFavsItem).toEqual({
-        title: '/добавить в избранное',
-        subtitle: 'получить доступ к списку избранного можно набрав "."',
+        title: '/додати в обране',
+        subtitle: 'переглянути обране можна натиснувши "."',
         icon: { path: './icons/bookmark.png' },
         arg:
-          '{"alfredworkflow":{"variables":{"action":"add","word":"castle","translations":"замок, дворец, ладья, твердыня, рокировка, убежище"}}}'
+          '{"alfredworkflow":{"variables":{"action":"add","word":"castle","translations":"замок, контейнер, сховище, палац, тура, фортеця"}}}'
       })
 
       expect(titleLang).toBe(targetLang)

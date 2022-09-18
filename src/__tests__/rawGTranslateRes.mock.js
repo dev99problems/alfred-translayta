@@ -25,10 +25,10 @@ exports.responseMock = {
           [['замок', null, null, null, [['замок', [4, 5, 1]]]]]
         ]
       ],
-      'ru',
+      'uk',
       1,
       'en',
-      ['castle', 'en', 'ru', true]
+      ['castle', 'en', 'uk', true]
     ],
     null,
     [
@@ -96,39 +96,39 @@ exports.responseMock = {
                 true
               ],
               [
-                'дворец',
+                'палац',
                 null,
                 ['palace', 'castle', 'mansion', 'chateau', 'mansion house'],
                 2,
                 true
               ],
-              ['ладья', null, ['rook', 'castle', 'shallop', 'ferry'], 3, true],
+              ['тура', null, ['rook', 'castle', 'shallop', 'ferry'], 3, true],
               [
-                'твердыня',
+                'фортеця',
                 null,
                 ['stronghold', 'citadel', 'castle', 'fastness'],
                 3,
                 true
               ],
-              ['рокировка', null, ['castling', 'castle'], 3, true],
+              ['рокіровка', null, ['castling', 'castle'], 3, true],
               [
-                'убежище',
+                'сховище',
                 null,
                 ['asylum', 'refuge', 'shelter', 'haven', 'sanctuary', 'castle'],
                 3,
                 true
               ]
             ],
-            'ru',
+            'uk',
             'en'
           ],
           [
             'verb',
             [
-              ['рокировать', null, ['castle'], 3, true],
-              ['рокироваться', null, ['castle'], 3, true]
+              ['рокірувати', null, ['castle'], 3, true],
+              ['рокіруватись', null, ['castle'], 3, true]
             ],
-            'ru',
+            'uk',
             'en'
           ]
         ],

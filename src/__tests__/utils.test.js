@@ -26,32 +26,19 @@ describe('utils', () => {
   })
 
   test('parseRawResponse: does initial data normalization of raw g-translate response', () => {
-    expect(parseRawResponse(responseMock.raw)).toMatchInlineSnapshot(
-      {
-        otherTranslations: [
-          'замок',
-          'дворец',
-          'ладья',
-          'твердыня',
-          'рокировка',
-          'убежище'
-        ],
-        pronunciation: 'ˈkasəl'
-      },
-      `
+    expect(parseRawResponse(responseMock.raw)).toMatchInlineSnapshot(`
       Object {
         "otherTranslations": Array [
           "замок",
-          "дворец",
-          "ладья",
-          "твердыня",
-          "рокировка",
-          "убежище",
+          "палац",
+          "тура",
+          "фортеця",
+          "рокіровка",
+          "сховище",
         ],
         "pronunciation": "ˈkasəl",
       }
-    `
-    )
+    `)
   })
 
   test('createArgWithAction: properly convert workflow variables into string', () => {
@@ -67,7 +54,7 @@ describe('utils', () => {
   test('createArgWithParams: properly convert workflow variables into string', () => {
     const action = 'remove or edit'
     const word = 'embrace'
-    const translations = 'охватывать, обнимать'
+    const translations = 'обтяжувати, обіймати'
 
     expect(createArgWithParams(action, word, translations)).toBe(
       `{"alfredworkflow":{"variables":{"action":"${action}","word":"${word}","translations":"${translations}"}}}`
