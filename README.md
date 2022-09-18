@@ -52,11 +52,17 @@ Open Alfred and type `t` **or** press `Cmd+Shift+K` and:
 
 ## Screenshots
 
+**Auto** detection of **translation direction**
+
 ![](screenshots/direction.jpg)
 
-![](screenshots/previous-and-autocorrection.jpg)
+**Auto correction** of misspelled words
 
-![](screenshots/learning-mode.jpg)
+![](screenshots/autocorrection.jpg)
+
+**Learning Mode**
+
+![](screenshots/learning-mode.mov)
 
 ## Testimonials
 
