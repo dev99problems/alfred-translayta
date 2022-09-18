@@ -62,7 +62,8 @@ Open Alfred and type `t` **or** press `Cmd+Shift+K` and:
 
 **Learning Mode**
 
-![](screenshots/learning-mode.mov)
+https://user-images.githubusercontent.com/6503508/190931908-f900f9da-8299-43e9-bb10-633299b817ed.mov
+
 
 ## Testimonials
 
