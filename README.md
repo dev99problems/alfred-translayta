@@ -34,7 +34,7 @@ $ npm install --global alfred-translayta
 
 Open Alfred and type `t` **or** press `Cmd+Shift+K` and:
 * **to get translation**:  
-  - start typing words or phrases in english or ukrainian
+  - start typing words or phrases in English or Ukrainian
 * **to get previous translation from cache**: 
   - press `spacebar`
 * **access the favorites**: 
