@@ -193,7 +193,7 @@
 	<key>createdby</key>
 	<string>Eugene Chulkov(@dev99problems)</string>
 	<key>description</key>
-	<string>Google Translator for en-ru, ru-en, save to favorites</string>
+	<string>Google Translator for en-uk, uk-en, save to favorites</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -294,6 +294,8 @@
 				</array>
 				<key>elselabel</key>
 				<string>else</string>
+				<key>hideelse</key>
+				<false/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.utility.conditional</string>
@@ -521,6 +523,8 @@
 				</array>
 				<key>elselabel</key>
 				<string>copy</string>
+				<key>hideelse</key>
+				<false/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.utility.conditional</string>
@@ -744,6 +748,8 @@
 			<integer>520</integer>
 		</dict>
 	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
 	<key>webaddress</key>
 	<string>https://github.com/dev99problems/alfred-translayta</string>
 </dict>
