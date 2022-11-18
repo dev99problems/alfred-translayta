@@ -7,10 +7,10 @@ exports.showSettingsMenu = () => {
     action: importAction,
     actionTip: importActionTip
   } = getActionTranslations('import', 'en')
-  /*const {
+  const {
     action: exportAction,
     actionTip: exportActionTip
-  } = getActionTranslations('export', 'en')*/
+  } = getActionTranslations('export', 'en')
 
   return [
     {
@@ -18,12 +18,12 @@ exports.showSettingsMenu = () => {
       subtitle: importActionTip,
       icon: { path: 'icons/import.png' },
       arg: createArgWithAction(favoritesOperations.IMPORT)
-    }
-    /*{
+    },
+    {
       title: exportAction,
       subtitle: exportActionTip,
       icon: { path: 'icons/export.png' },
       arg: createArgWithAction(favoritesOperations.EXPORT)
-    }*/
+    }
   ]
 }

@@ -32,7 +32,7 @@ const intl = {
     en: 'remove'
   },
   removeActionTip: {
-    uk: 'видалити цей переклад з обраного',
+    uk: 'видалить цей переклад з обраного',
     en: 'will remove the word from your favorites'
   },
   editAction: {
@@ -56,9 +56,16 @@ const intl = {
     en: 'import favorites'
   },
   importActionTip: {
-    uk: 'з файлу favorites.json и !!!повністю перетре поточний кеш!!!',
-    en:
-      'from file favorites.json and !!!completely replace current workflow cache!!!'
+    uk: 'з файлу favorites.json !!!це повністю перетре поточний кеш!!!',
+    en: 'from file favorites.json !!!this completely replace current cache!!!'
+  },
+  exportAction: {
+    uk: 'експортувати обране',
+    en: 'export favorites'
+  },
+  exportActionTip: {
+    uk: 'до файлу favorites.json !!!це повністю перетре дані у файлі!!!',
+    en: 'to file favorites.json !!!this completely replace current cache!!!'
   }
 }
 
