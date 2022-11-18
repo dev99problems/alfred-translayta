@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh@github.com:eugenechu/alfred-translayta.git"
+    "url": "git+ssh@github.com:dev99problems/alfred-translayta.git"
   },
   "author": {
     "name": "Eugene Chulkov",
@@ -34,9 +34,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/eugenechu/alfred-translayta/issues"
+    "url": "https://github.com/dev99problems/alfred-translayta/issues"
   },
-  "homepage": "https://github.com/eugenechu/alfred-translayta#readme",
+  "homepage": "https://github.com/dev99problems/alfred-translayta#readme",
   "dependencies": {
     "@vitalets/google-translate-api": "^5.0.0",
     "alfy": "0.11.1",
