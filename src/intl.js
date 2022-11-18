@@ -40,16 +40,16 @@ const intl = {
     en: 'edit'
   },
   editActionTip: {
-    uk: 'дозволити редагувати переклад',
-    en: "let's you to change translation of the word"
+    uk: 'дозволить редагувати переклад',
+    en: 'will let you change translation of the word'
   },
   saveAction: {
     uk: 'зберегти',
     en: 'save'
   },
   saveActionTip: {
-    uk: 'зберегти зміни',
-    en: 'save updated translation'
+    uk: 'збереже зміни',
+    en: 'will save updated translation'
   },
   importAction: {
     uk: 'імпортувати обране',

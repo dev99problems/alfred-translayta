@@ -15,12 +15,12 @@ describe('intl', () => {
 
       expect(getActionTranslations('save', 'en')).toEqual({
         action: '/save',
-        actionTip: 'save updated translation'
+        actionTip: 'will save updated translation'
       })
 
       expect(getActionTranslations('save', 'uk')).toEqual({
         action: '/зберегти',
-        actionTip: 'зберегти зміни'
+        actionTip: 'збереже зміни'
       })
     })
   })
