@@ -1,4 +1,3 @@
-# TODO: update the versions of jobs
 name: Release
 on:
   workflow_dispatch:
@@ -8,13 +7,15 @@ jobs:
     name: Manual Release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         
       - name: Setup node.js v14.x 
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '14'
           registry-url: https://registry.npmjs.org/
+          cache: yarn
+
       - run: yarn --ignore-scripts
       - run: yarn test:cov
       - run: npm publish --access public
