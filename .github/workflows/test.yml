@@ -10,20 +10,21 @@ jobs:
     name: Testing
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Setup node.js v14.x
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '14'
+          cache: yarn
 
       - name: Install deps and test
         run: |
-          echo "Node version:"
-          node --version
-          echo "npm version:"
-          npm --version
-          echo "yarn version:"
-          yarn --version
+          # echo "Node version:"
+          # node --version
+          # echo "npm version:"
+          # npm --version
+          # echo "yarn version:"
+          # yarn --version
           yarn --ignore-scripts
           yarn test:cov
