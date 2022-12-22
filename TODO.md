@@ -1,13 +1,13 @@
 # TODO for Alfred-translayta
 
-## NeXT
+### NeXT
 
 - `[X]` migrate to `pnpm`?
 - `[X]` bump all deps versions to the latest minor/patch versions
 - `[X]` convert all dependencies to strict version
 
 
-### Backlog
+## Backlog
 
 #### General
 
