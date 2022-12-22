@@ -11,14 +11,19 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7.17.0
+
       - name: Setup node.js v14.x
         uses: actions/setup-node@v3
         with:
           node-version: '14'
-          cache: yarn
+          cache: 'pnpm'
 
       - name: Install deps
-        run: yarn --ignore-scripts
+        run: pnpm install --frozen-lockfile --ignore-scripts=true
 
       - name: Run tests
-        run: yarn test:cov
+        run: pnpm test:cov
