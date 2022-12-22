@@ -9,7 +9,7 @@ const setup = () => {
     alfyCache: new Cache('names', alfy.cache),
     translation: {
       title: 'indeed',
-      subtitle: 'на самом деле'
+      subtitle: 'дійсно'
     }
   }
 }
