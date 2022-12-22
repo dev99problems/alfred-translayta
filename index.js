@@ -17,26 +17,23 @@ const showFavoritesMode = userInput === '.'
 const learnFavoritesMode = userInput === '..'
 const searchInFavoritesMode = userInput.startsWith('.') && !showFavoritesMode
 
-// NOTE: even though seems like top level await landed in node v10.x
-// we use async iife here
-!(async () => {
-  let output
+// top-level async/await landed in 14.8.0 without
+// need of the usage any extra flags
+let output
+if (previousMode) {
+  output = showLastTranslation()
+} else if (settingsMode) {
+  output = showSettingsMenu()
+} else if (showFavoritesMode) {
+  config.set('withSubtitle', true)
+  output = showFavorites()
+} else if (learnFavoritesMode) {
+  config.set('withSubtitle', false)
+  output = showFavorites()
+} else if (searchInFavoritesMode) {
+  output = searchInFavorites(userInput)
+} else {
+  output = await translate(userInput)
+}
 
-  if (previousMode) {
-    output = showLastTranslation()
-  } else if (settingsMode) {
-    output = showSettingsMenu()
-  } else if (showFavoritesMode) {
-    config.set('withSubtitle', true)
-    output = showFavorites()
-  } else if (learnFavoritesMode) {
-    config.set('withSubtitle', false)
-    output = showFavorites()
-  } else if (searchInFavoritesMode) {
-    output = searchInFavorites(userInput)
-  } else {
-    output = await translate(userInput)
-  }
-
-  alfy.output(output)
-})()
+alfy.output(output)
