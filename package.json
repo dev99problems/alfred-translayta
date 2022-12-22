@@ -7,7 +7,7 @@
     "postinstall": "alfy-init",
     "preuninstall": "alfy-cleanup",
     "test": "jest --config=jest.config.js",
-    "test:cov": "yarn test --collectCoverage=true --collectCoverageFrom=src/**/*.js"
+    "test:cov": "pnpm test -- --collectCoverage=true --collectCoverageFrom=src/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -51,7 +51,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "yarn test"
+      "pre-push": "pnpm test"
     }
   },
   "lint-staged": {
