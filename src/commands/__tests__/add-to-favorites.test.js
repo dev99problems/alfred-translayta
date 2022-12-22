@@ -44,5 +44,49 @@ describe('addToFavoritesAction', () => {
     expect(otherTranslations.join(', ')).toEqual(otherTranslationsInArg)
   })
 
-  // TODO: add test cases for 1 otherTranslations and 0 otherTranslations
+  test('adds to favorites properly, when only 1 other translation provided', () => {
+    const userInput = 'castle'
+    const translation = 'замок'
+    const otherTranslations = [
+      'фортеця'
+    ]
+    const targetLang = 'uk'
+
+    const addToFavsItem = addToFavoritesAction(
+      userInput,
+      translation,
+      otherTranslations,
+      targetLang
+    )
+
+    expect(addToFavsItem).toEqual({
+      title: '/додати в обране',
+      subtitle: 'переглянути обране можна натиснувши "."',
+      icon: { path: './icons/bookmark.png' },
+      arg:
+        '{"alfredworkflow":{"variables":{"action":"add","word":"castle","translations":"фортеця"}}}'
+    })
+  })
+
+  test('adds to favorites properly, when there are no other translations', () => {
+    const userInput = 'castle'
+    const translation = 'замок'
+    const otherTranslations = []
+    const targetLang = 'uk'
+
+    const addToFavsItem = addToFavoritesAction(
+      userInput,
+      translation,
+      otherTranslations,
+      targetLang
+    )
+
+    expect(addToFavsItem).toEqual({
+      title: '/додати в обране',
+      subtitle: 'переглянути обране можна натиснувши "."',
+      icon: { path: './icons/bookmark.png' },
+      arg:
+        '{"alfredworkflow":{"variables":{"action":"add","word":"castle","translations":"замок"}}}'
+    })
+  })
 })
