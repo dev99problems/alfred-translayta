@@ -1,6 +1,6 @@
 const { parseAutoCorrection, parseRawResponse } = require('../utils.js')
+const { addToFavoritesAction } = require('../commands/add-to-favorites.js')
 const {
-  addToFavoritesAction,
   formatMainTranslation,
   formatOtherTranslations,
   formatAutoCorrection
