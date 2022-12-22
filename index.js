@@ -17,7 +17,8 @@ const showFavoritesMode = userInput === '.'
 const learnFavoritesMode = userInput === '..'
 const searchInFavoritesMode = userInput.startsWith('.') && !showFavoritesMode
 
-// top-level async/await landed in 14.8.0 without flag
+// top-level async/await landed in 14.8.0 without
+// need of the usage any extra flags
 let output
 if (previousMode) {
   output = showLastTranslation()
