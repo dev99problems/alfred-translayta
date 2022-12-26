@@ -13,8 +13,7 @@ const getTranslations = userInput => {
       const translationsList = createTranslationsList(response, to, userInput)
       lastSearchCache.set({
         prevUserInput: userInput,
-        // ⤵️
-        prevDestLang: to,
+        prevTargetLang: to,
         prevOutput: translationsList
       })
 
