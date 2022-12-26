@@ -47,7 +47,7 @@ exports.parseRawResponse = rawApiResponse => {
 exports.createArgWithAction = action =>
   `{"alfredworkflow":{"variables":{"action":"${action}"}}}`
 
-exports.createArgWithParams = (action, word, translations) =>
+exports.createArgWithParams = (action, word, translations = '') =>
   `{"alfredworkflow":{"variables":{"action":"${action}","word":"${word}","translations":"${translations}"}}}`
 
 exports.isObjEmpty = obj =>

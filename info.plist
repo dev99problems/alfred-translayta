@@ -133,18 +133,6 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>A7B80A5A-9889-4C24-96B5-8AFCEC7C91B5</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>sourceoutputuid</key>
-				<string>888BB9D9-DF0B-4410-A89B-D3FAD1B6AC9E</string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>destinationuid</key>
 				<string>2DFC160C-DB7A-4DDB-911E-DEAB69930746</string>
 				<key>modifiers</key>
 				<integer>0</integer>
@@ -152,6 +140,30 @@
 				<string></string>
 				<key>sourceoutputuid</key>
 				<string>E9C2AC90-C818-461B-B1F3-380E5B451AE9</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>C58C97E4-6BD5-455F-95CE-A5A98DF385D0</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>6F832A29-B221-4733-9C8B-5CED71C32C35</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>A7B80A5A-9889-4C24-96B5-8AFCEC7C91B5</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>888BB9D9-DF0B-4410-A89B-D3FAD1B6AC9E</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -205,29 +217,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>./node_modules/.bin/run-node src/commands/import-favorites.js</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>A7B80A5A-9889-4C24-96B5-8AFCEC7C91B5</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>autopaste</key>
 				<false/>
 				<key>clipboardtext</key>
@@ -241,6 +230,25 @@
 			<string>alfred.workflow.output.clipboard</string>
 			<key>uid</key>
 			<string>2DFC160C-DB7A-4DDB-911E-DEAB69930746</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<true/>
+				<key>clipboardtext</key>
+				<string>{var:word}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>C58C97E4-6BD5-455F-95CE-A5A98DF385D0</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
@@ -262,6 +270,20 @@
 						<string>copy</string>
 						<key>uid</key>
 						<string>E9C2AC90-C818-461B-B1F3-380E5B451AE9</string>
+					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string>{var:action}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>paste to foremost</string>
+						<key>outputlabel</key>
+						<string>paste to foremost</string>
+						<key>uid</key>
+						<string>6F832A29-B221-4733-9C8B-5CED71C32C35</string>
 					</dict>
 					<dict>
 						<key>inputstring</key>
@@ -317,6 +339,29 @@
 			<string>DC14DECC-523B-432F-AD6F-CEA188218F07</string>
 			<key>version</key>
 			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>./node_modules/.bin/run-node src/commands/import-favorites.js</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>A7B80A5A-9889-4C24-96B5-8AFCEC7C91B5</string>
+			<key>version</key>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -694,16 +739,16 @@
 		<key>2DFC160C-DB7A-4DDB-911E-DEAB69930746</key>
 		<dict>
 			<key>xpos</key>
-			<real>695</real>
+			<real>650</real>
 			<key>ypos</key>
-			<real>210</real>
+			<real>25</real>
 		</dict>
 		<key>45D6F7D3-89A4-44CB-B720-08A5C9AD4DD2</key>
 		<dict>
 			<key>xpos</key>
-			<real>1090</real>
+			<real>1120</real>
 			<key>ypos</key>
-			<real>305</real>
+			<real>370</real>
 		</dict>
 		<key>7BC8A4FC-83CD-4D60-AD7C-D624DF520283</key>
 		<dict>
@@ -736,9 +781,9 @@
 		<key>A7B80A5A-9889-4C24-96B5-8AFCEC7C91B5</key>
 		<dict>
 			<key>xpos</key>
-			<real>650</real>
+			<real>640</real>
 			<key>ypos</key>
-			<real>15</real>
+			<real>270</real>
 		</dict>
 		<key>B91898D4-5C6F-4DD2-88D9-0FFE54910914</key>
 		<dict>
@@ -746,6 +791,13 @@
 			<real>255</real>
 			<key>ypos</key>
 			<real>270</real>
+		</dict>
+		<key>C58C97E4-6BD5-455F-95CE-A5A98DF385D0</key>
+		<dict>
+			<key>xpos</key>
+			<real>785</real>
+			<key>ypos</key>
+			<real>140</real>
 		</dict>
 		<key>DC14DECC-523B-432F-AD6F-CEA188218F07</key>
 		<dict>
