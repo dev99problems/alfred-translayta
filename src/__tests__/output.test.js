@@ -24,7 +24,13 @@ describe('output', () => {
 
       expect(mainTranslation).toEqual({
         title: 'замок [kasəl]',
-        subtitle: 'best fit translation'
+        subtitle: 'best fit translation',
+        arg: '{"alfredworkflow":{"variables":{"action":"copy","word":"замок","translations":""}}}',
+        mods: {
+          shift: {
+            arg: '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"замок","translations":""}}}',
+          },
+        },
       })
     })
 
@@ -43,7 +49,13 @@ describe('output', () => {
 
         expect(mainTranslation).toEqual({
           title: 'вірно [inˈdēd]',
-          subtitle: 'best fit translation'
+          subtitle: 'best fit translation',
+          arg: '{"alfredworkflow":{"variables":{"action":"copy","word":"вірно","translations":""}}}',
+          mods: {
+            shift: {
+              arg: '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"вірно","translations":""}}}',
+            },
+          },
         })
       })
 
@@ -61,7 +73,13 @@ describe('output', () => {
 
         expect(mainTranslation).toEqual({
           title: 'вірно',
-          subtitle: 'best fit translation'
+          subtitle: 'best fit translation',
+          arg: '{"alfredworkflow":{"variables":{"action":"copy","word":"вірно","translations":""}}}',
+          mods: {
+            shift: {
+              arg: '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"вірно","translations":""}}}',
+            },
+          },
         })
       })
     })
@@ -82,7 +100,14 @@ describe('output', () => {
 
         expect(mainTranslation).toEqual({
           title: 'мешкати [dwell]',
-          subtitle: 'накрайщий переклад'
+          subtitle: 'накрайщий переклад',
+          arg: '{"alfredworkflow":{"variables":{"action":"copy","word":"мешкати","translations":""}}}',
+          mods: {
+            shift: {
+              arg: '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"мешкати","translations":""}}}'
+            },
+          },
+
         })
 
         expect(hintLang).toBe('uk')
@@ -103,7 +128,13 @@ describe('output', () => {
 
         expect(mainTranslation).toEqual({
           title: 'dwell [meshkaty]',
-          subtitle: 'best fit translation'
+          subtitle: 'best fit translation',
+          arg: '{"alfredworkflow":{"variables":{"action":"copy","word":"dwell","translations":""}}}',
+          mods: {
+            shift: {
+              arg: '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"dwell","translations":""}}}',
+            },
+          },
         })
 
         expect(hintLang).toBe('en')
@@ -126,19 +157,49 @@ describe('output', () => {
 
       expect(formattedOtherTranslations).toEqual([
         {
-          title: 'контейнер'
+          title: 'контейнер',
+          arg: '{"alfredworkflow":{"variables":{"action":"copy","word":"контейнер","translations":""}}}',
+          mods: {
+            shift: {
+              arg: '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"контейнер","translations":""}}}',
+            },
+          },
         },
         {
-          title: 'сховище'
+          title: 'сховище',
+          arg: '{"alfredworkflow":{"variables":{"action":"copy","word":"сховище","translations":""}}}',
+          mods: {
+            shift: {
+              arg: '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"сховище","translations":""}}}',
+            },
+          },
         },
         {
-          title: 'палац'
+          title: 'палац',
+          arg: '{"alfredworkflow":{"variables":{"action":"copy","word":"палац","translations":""}}}',
+          mods: {
+            shift: {
+              arg: '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"палац","translations":""}}}',
+            },
+          },
         },
         {
-          title: 'тура'
+          title: 'тура',
+          arg: '{"alfredworkflow":{"variables":{"action":"copy","word":"тура","translations":""}}}',
+          mods: {
+            shift: {
+              arg: '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"тура","translations":""}}}',
+            },
+          },
         },
         {
-          title: 'фортеця'
+          title: 'фортеця',
+          arg: '{"alfredworkflow":{"variables":{"action":"copy","word":"фортеця","translations":""}}}',
+          mods: {
+            shift: {
+              arg: '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"фортеця","translations":""}}}',
+            },
+          },
         }
       ])
     })
