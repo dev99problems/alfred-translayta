@@ -71,6 +71,8 @@
 				<false/>
 			</dict>
 		</array>
+		<key>2DFC160C-DB7A-4DDB-911E-DEAB69930746</key>
+		<array/>
 		<key>45D6F7D3-89A4-44CB-B720-08A5C9AD4DD2</key>
 		<array/>
 		<key>8ECC93A1-1A5B-46DF-AE90-B0178574D3F0</key>
@@ -143,13 +145,13 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
-				<string>9880C72A-2C76-4DB6-B546-F9544CFA609F</string>
+				<string>2DFC160C-DB7A-4DDB-911E-DEAB69930746</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
 				<key>sourceoutputuid</key>
-				<string>C479B8FC-DACF-414E-AF61-7074D772CC3B</string>
+				<string>E9C2AC90-C818-461B-B1F3-380E5B451AE9</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -226,29 +228,41 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
+				<key>autopaste</key>
 				<false/>
-				<key>onlyshowifquerypopulated</key>
+				<key>clipboardtext</key>
+				<string>{var:word}</string>
+				<key>ignoredynamicplaceholders</key>
 				<false/>
-				<key>removeextension</key>
+				<key>transient</key>
 				<false/>
-				<key>text</key>
-				<string>Export mooooooo</string>
-				<key>title</key>
-				<string>Export(Not Implemented yet)</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
+			<string>alfred.workflow.output.clipboard</string>
 			<key>uid</key>
-			<string>9880C72A-2C76-4DB6-B546-F9544CFA609F</string>
+			<string>2DFC160C-DB7A-4DDB-911E-DEAB69930746</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
 				<key>conditions</key>
 				<array>
+					<dict>
+						<key>inputstring</key>
+						<string>{var:action}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>copy</string>
+						<key>outputlabel</key>
+						<string>copy</string>
+						<key>uid</key>
+						<string>E9C2AC90-C818-461B-B1F3-380E5B451AE9</string>
+					</dict>
 					<dict>
 						<key>inputstring</key>
 						<string>{var:action}</string>
@@ -659,93 +673,93 @@
 		<key>043B242D-2FB1-4599-8795-3883706010C5</key>
 		<dict>
 			<key>xpos</key>
-			<integer>45</integer>
+			<real>45</real>
 			<key>ypos</key>
-			<integer>415</integer>
+			<real>415</real>
 		</dict>
 		<key>088624A7-97FF-4769-8F6A-16AFD066B829</key>
 		<dict>
 			<key>xpos</key>
-			<integer>715</integer>
+			<real>680</real>
 			<key>ypos</key>
-			<integer>485</integer>
+			<real>455</real>
 		</dict>
 		<key>16D65AC8-1071-4880-AF3D-1094AB38C2D5</key>
 		<dict>
 			<key>xpos</key>
-			<integer>45</integer>
+			<real>45</real>
 			<key>ypos</key>
-			<integer>560</integer>
+			<real>560</real>
+		</dict>
+		<key>2DFC160C-DB7A-4DDB-911E-DEAB69930746</key>
+		<dict>
+			<key>xpos</key>
+			<real>695</real>
+			<key>ypos</key>
+			<real>210</real>
 		</dict>
 		<key>45D6F7D3-89A4-44CB-B720-08A5C9AD4DD2</key>
 		<dict>
 			<key>xpos</key>
-			<integer>1075</integer>
+			<real>1090</real>
 			<key>ypos</key>
-			<integer>285</integer>
+			<real>305</real>
 		</dict>
 		<key>7BC8A4FC-83CD-4D60-AD7C-D624DF520283</key>
 		<dict>
 			<key>xpos</key>
-			<integer>835</integer>
+			<real>800</real>
 			<key>ypos</key>
-			<integer>645</integer>
+			<real>615</real>
 		</dict>
 		<key>8ECC93A1-1A5B-46DF-AE90-B0178574D3F0</key>
 		<dict>
 			<key>xpos</key>
-			<integer>830</integer>
+			<real>795</real>
 			<key>ypos</key>
-			<integer>520</integer>
+			<real>490</real>
 		</dict>
 		<key>927883E1-51F5-4F34-A42C-F9A6FD8F8832</key>
 		<dict>
 			<key>xpos</key>
-			<integer>45</integer>
+			<real>45</real>
 			<key>ypos</key>
-			<integer>270</integer>
-		</dict>
-		<key>9880C72A-2C76-4DB6-B546-F9544CFA609F</key>
-		<dict>
-			<key>xpos</key>
-			<integer>650</integer>
-			<key>ypos</key>
-			<integer>160</integer>
+			<real>270</real>
 		</dict>
 		<key>A2458C7B-25F5-4BAF-ACD9-44D67FEDB9C1</key>
 		<dict>
 			<key>xpos</key>
-			<integer>565</integer>
+			<real>530</real>
 			<key>ypos</key>
-			<integer>480</integer>
+			<real>450</real>
 		</dict>
 		<key>A7B80A5A-9889-4C24-96B5-8AFCEC7C91B5</key>
 		<dict>
 			<key>xpos</key>
-			<integer>650</integer>
+			<real>650</real>
 			<key>ypos</key>
-			<integer>10</integer>
+			<real>15</real>
 		</dict>
 		<key>B91898D4-5C6F-4DD2-88D9-0FFE54910914</key>
 		<dict>
 			<key>xpos</key>
-			<integer>255</integer>
+			<real>255</real>
 			<key>ypos</key>
-			<integer>270</integer>
+			<real>270</real>
 		</dict>
 		<key>DC14DECC-523B-432F-AD6F-CEA188218F07</key>
 		<dict>
 			<key>xpos</key>
-			<integer>405</integer>
+			<real>435</real>
 			<key>ypos</key>
-			<integer>260</integer>
+			<real>245</real>
 		</dict>
 		<key>EE2B6FB7-29BB-4B71-9460-E97584307ACF</key>
 		<dict>
 			<key>xpos</key>
-			<integer>980</integer>
+			<real>945</real>
 			<key>ypos</key>
-			<integer>520</integer>
+			<real>490</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>

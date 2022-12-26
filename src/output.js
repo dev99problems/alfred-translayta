@@ -1,13 +1,16 @@
 const { intl } = require('./intl.js')
+const { createArgWithParams } = require('./utils.js')
 
 exports.formatMainTranslation = (translation, pronunciation, targetLang) => ({
   title: pronunciation ? `${translation} [${pronunciation}]` : translation,
-  subtitle: intl.bestTranslMsg[targetLang]
+  subtitle: intl.bestTranslMsg[targetLang],
+  arg: createArgWithParams('copy', translation, ''),
 })
 
 exports.formatOtherTranslations = (otherTranslations = []) =>
   otherTranslations.splice(1).map(translation => ({
-    title: translation
+    title: translation,
+    arg: createArgWithParams('copy', translation, ''),
   }))
 
 exports.formatAutoCorrection = (correctedValue, targetLang) => ({
