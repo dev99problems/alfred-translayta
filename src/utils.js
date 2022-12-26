@@ -2,7 +2,9 @@ const get = require('lodash.get')
 
 const parseCorrectedValue = value => {
   if (typeof value === 'string') {
-    return value.replace(/\[|\]/gi, '')
+    return value
+      .replace(/\[|\]/gi, '')
+      .replace(/\&\#39;/gi, '\'')
   }
 
   return ''
