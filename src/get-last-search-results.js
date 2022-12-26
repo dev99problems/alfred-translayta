@@ -5,7 +5,7 @@ exports.getLastSearchResults = () => {
   const {
     prevUserInput,
     prevOutput = [],
-    prevDestLang: prevTargetLang
+    prevTargetLang,
   } = lastSearchCache.get()
   const lastSearch = formatLastSearch(prevUserInput, prevTargetLang)
 

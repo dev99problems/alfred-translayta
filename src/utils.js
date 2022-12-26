@@ -2,7 +2,9 @@ const get = require('lodash.get')
 
 const parseCorrectedValue = value => {
   if (typeof value === 'string') {
-    return value.replace(/\[|\]/gi, '')
+    return value
+      .replace(/\[|\]/gi, '')
+      .replace(/\&\#39;/gi, '\'')
   }
 
   return ''
@@ -45,7 +47,7 @@ exports.parseRawResponse = rawApiResponse => {
 exports.createArgWithAction = action =>
   `{"alfredworkflow":{"variables":{"action":"${action}"}}}`
 
-exports.createArgWithParams = (action, word, translations) =>
+exports.createArgWithParams = (action, word, translations = '') =>
   `{"alfredworkflow":{"variables":{"action":"${action}","word":"${word}","translations":"${translations}"}}}`
 
 exports.isObjEmpty = obj =>
