@@ -1,4 +1,8 @@
 const intl = {
+  pronunciationMsg: {
+    uk: 'вимова слова/фрази із запиту',
+    en: 'pronunciation of requested word/phrase'
+  },
   bestTranslMsg: {
     uk: 'накрайщий переклад',
     en: 'best fit translation'

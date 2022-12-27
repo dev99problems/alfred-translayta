@@ -3,22 +3,17 @@ const { addToFavoritesAction } = require('../commands/add-to-favorites.js')
 const {
   formatMainTranslation,
   formatOtherTranslations,
-  formatAutoCorrection
+  formatAutoCorrection,
+  formatPronunciation,
 } = require('../output.js')
 
 const createTranslationsList = (response, targetLang, userInput) => {
   const { text: translation, from: translationDetails, raw } = response
   const { otherTranslations, pronunciation } = parseRawResponse(raw)
 
-  const mainTranslation = formatMainTranslation(
-    translation,
-    pronunciation,
-    targetLang
-  )
-
-  const { isAutoCorrected, correctedValue } = parseAutoCorrection(
-    translationDetails
-  )
+  const requestedPhrasePronunciation = formatPronunciation(pronunciation, targetLang)
+  const mainTranslation = formatMainTranslation(translation, targetLang)
+  const { isAutoCorrected, correctedValue } = parseAutoCorrection(translationDetails)
 
   if (isAutoCorrected) {
     const suggestion = formatAutoCorrection(correctedValue, targetLang)
@@ -31,9 +26,10 @@ const createTranslationsList = (response, targetLang, userInput) => {
       targetLang
     )
     return [
-      addToFavorites,
+      (requestedPhrasePronunciation?.title ? requestedPhrasePronunciation : {}),
       mainTranslation,
-      ...formatOtherTranslations(otherTranslations)
+      ...formatOtherTranslations(otherTranslations),
+      addToFavorites,
     ]
   }
 }
