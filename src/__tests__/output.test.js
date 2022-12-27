@@ -1,5 +1,6 @@
 const { getTranslationSource } = require('../translation-direction')
 const {
+  formatPronunciation,
   formatMainTranslation,
   formatOtherTranslations,
   formatAutoCorrection,
@@ -9,105 +10,96 @@ const {
 const getStrLanguage = getTranslationSource
 
 describe('output', () => {
-  describe('formatMainTranslation', () => {
-    test('prepares raw translation to alfy-output in format {title, subtitle}', () => {
-      // originalInput = 'castle'
-      const translation = 'замок'
+  describe.only('formatPronunciation', () => {
+    test('creates list item, that shows pronunciation if it is provided by API', () => {
+      // originalInput = 'castle', translation = 'замок'
       const pronunciation = 'kasəl'
-      const targetLang = 'en'
+      const targetLang = 'uk'
 
-      const mainTranslation = formatMainTranslation(
-        translation,
+      const requestedPhrasePronunciation = formatPronunciation(
         pronunciation,
         targetLang
       )
 
-      expect(mainTranslation).toEqual({
-        title: 'замок [kasəl]',
-        subtitle: 'best fit translation',
-        arg: '{"alfredworkflow":{"variables":{"action":"copy","word":"замок","translations":""}}}',
+      expect(requestedPhrasePronunciation).toEqual({
+        title: "[kasəl]",
+        subtitle: "вимова слова/фрази із запиту",
+        arg: '{"alfredworkflow":{"variables":{"action":"copy","word":"kasəl","translations":""}}}',
         mods: {
           shift: {
-            arg: '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"замок","translations":""}}}',
+            arg: '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"kasəl","translations":""}}}',
           },
         },
       })
     })
 
-    describe('pronunciation', () => {
-      test('adds "pronunciation" next to translation if there is one', () => {
-        // originalInput = 'indeed'
-        const translation = 'вірно'
-        const pronunciation = 'inˈdēd'
-        const targetLang = 'en'
+    // this usually happens, when multi words phrase provided
+    test('creates a list item mock, if pronunciation is not provided', () => {
+      // originalInput = 'white castle on the rock', translation = 'Білий замок на скелі'
+      const pronunciation = null
+      const targetLang = 'uk'
 
-        const mainTranslation = formatMainTranslation(
-          translation,
-          pronunciation,
-          targetLang
-        )
+      const requestedPhrasePronunciation = formatPronunciation(
+        pronunciation,
+        targetLang
+      )
 
-        expect(mainTranslation).toEqual({
-          title: 'вірно [inˈdēd]',
-          subtitle: 'best fit translation',
-          arg: '{"alfredworkflow":{"variables":{"action":"copy","word":"вірно","translations":""}}}',
-          mods: {
-            shift: {
-              arg: '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"вірно","translations":""}}}',
-            },
+      // in final list this item simply will be omitted!
+      expect(requestedPhrasePronunciation).toEqual({
+        title: "",
+        subtitle: "вимова слова/фрази із запиту",
+        arg: '{"alfredworkflow":{"variables":{"action":"copy","word":"","translations":""}}}',
+        mods: {
+          shift: {
+            arg: '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"","translations":""}}}',
           },
-        })
+        },
       })
+    })
+  })
 
-      test('returns only translation, if no pronunciation found', () => {
-        // originalInput = 'indeed'
-        const translation = 'вірно'
-        const pronunciation = undefined
-        const targetLang = 'en'
+  describe('formatMainTranslation', () => {
+    test('prepares raw translation to alfy-output in format {title, subtitle}', () => {
+      // originalInput = 'castle'
+      const translation = 'замок'
+      const targetLang = 'uk'
 
-        const mainTranslation = formatMainTranslation(
-          translation,
-          pronunciation,
-          targetLang
-        )
+      const mainTranslation = formatMainTranslation(translation, targetLang)
 
-        expect(mainTranslation).toEqual({
-          title: 'вірно',
-          subtitle: 'best fit translation',
-          arg: '{"alfredworkflow":{"variables":{"action":"copy","word":"вірно","translations":""}}}',
-          mods: {
-            shift: {
-              arg: '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"вірно","translations":""}}}',
-            },
-          },
-        })
+      expect(mainTranslation).toEqual({
+        title: 'замок',
+        subtitle: 'накрайщий переклад',
+        arg:
+          '{"alfredworkflow":{"variables":{"action":"copy","word":"замок","translations":""}}}',
+        mods: {
+          shift: {
+            arg:
+              '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"замок","translations":""}}}'
+          }
+        }
       })
     })
 
-    describe('shows translation and tip in subtitle in "targetLang" and pronunciation in "sourceLang"', () => {
+    describe('shows translation and tip in subtitle in "targetLang"', () => {
       test('for en-uk direction', () => {
         // originalInput = 'dwell'
         const translation = 'мешкати'
-        const pronunciation = 'dwell'
         const targetLang = 'uk'
 
-        const mainTranslation = formatMainTranslation(
-          translation,
-          pronunciation,
-          targetLang
-        )
+        const mainTranslation = formatMainTranslation(translation, targetLang)
         const hintLang = getStrLanguage(mainTranslation.subtitle)
 
         expect(mainTranslation).toEqual({
-          title: 'мешкати [dwell]',
+          title: 'мешкати',
           subtitle: 'накрайщий переклад',
-          arg: '{"alfredworkflow":{"variables":{"action":"copy","word":"мешкати","translations":""}}}',
+          arg:
+            '{"alfredworkflow":{"variables":{"action":"copy","word":"мешкати","translations":""}}}',
           mods: {
             shift: {
-              arg: '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"мешкати","translations":""}}}'
-            },
-          },
-
+              arg:
+                '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"мешкати","translations":""}}}'
+            }
+          }
         })
 
         expect(hintLang).toBe('uk')
@@ -116,25 +108,25 @@ describe('output', () => {
       test('for uk-en direction', () => {
         // originalInput = 'мешкати'
         const translation = 'dwell'
-        const pronunciation = 'meshkaty'
         const targetLang = 'en'
 
         const mainTranslation = formatMainTranslation(
           translation,
-          pronunciation,
           targetLang
         )
         const hintLang = getStrLanguage(mainTranslation.subtitle)
 
         expect(mainTranslation).toEqual({
-          title: 'dwell [meshkaty]',
+          title: 'dwell',
           subtitle: 'best fit translation',
-          arg: '{"alfredworkflow":{"variables":{"action":"copy","word":"dwell","translations":""}}}',
+          arg:
+            '{"alfredworkflow":{"variables":{"action":"copy","word":"dwell","translations":""}}}',
           mods: {
             shift: {
-              arg: '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"dwell","translations":""}}}',
-            },
-          },
+              arg:
+                '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"dwell","translations":""}}}'
+            }
+          }
         })
 
         expect(hintLang).toBe('en')
@@ -158,48 +150,58 @@ describe('output', () => {
       expect(formattedOtherTranslations).toEqual([
         {
           title: 'контейнер',
-          arg: '{"alfredworkflow":{"variables":{"action":"copy","word":"контейнер","translations":""}}}',
+          arg:
+            '{"alfredworkflow":{"variables":{"action":"copy","word":"контейнер","translations":""}}}',
           mods: {
             shift: {
-              arg: '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"контейнер","translations":""}}}',
-            },
-          },
+              arg:
+                '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"контейнер","translations":""}}}'
+            }
+          }
         },
         {
           title: 'сховище',
-          arg: '{"alfredworkflow":{"variables":{"action":"copy","word":"сховище","translations":""}}}',
+          arg:
+            '{"alfredworkflow":{"variables":{"action":"copy","word":"сховище","translations":""}}}',
           mods: {
             shift: {
-              arg: '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"сховище","translations":""}}}',
-            },
-          },
+              arg:
+                '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"сховище","translations":""}}}'
+            }
+          }
         },
         {
           title: 'палац',
-          arg: '{"alfredworkflow":{"variables":{"action":"copy","word":"палац","translations":""}}}',
+          arg:
+            '{"alfredworkflow":{"variables":{"action":"copy","word":"палац","translations":""}}}',
           mods: {
             shift: {
-              arg: '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"палац","translations":""}}}',
-            },
-          },
+              arg:
+                '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"палац","translations":""}}}'
+            }
+          }
         },
         {
           title: 'тура',
-          arg: '{"alfredworkflow":{"variables":{"action":"copy","word":"тура","translations":""}}}',
+          arg:
+            '{"alfredworkflow":{"variables":{"action":"copy","word":"тура","translations":""}}}',
           mods: {
             shift: {
-              arg: '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"тура","translations":""}}}',
-            },
-          },
+              arg:
+                '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"тура","translations":""}}}'
+            }
+          }
         },
         {
           title: 'фортеця',
-          arg: '{"alfredworkflow":{"variables":{"action":"copy","word":"фортеця","translations":""}}}',
+          arg:
+            '{"alfredworkflow":{"variables":{"action":"copy","word":"фортеця","translations":""}}}',
           mods: {
             shift: {
-              arg: '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"фортеця","translations":""}}}',
-            },
-          },
+              arg:
+                '{"alfredworkflow":{"variables":{"action":"paste to foremost","word":"фортеця","translations":""}}}'
+            }
+          }
         }
       ])
     })

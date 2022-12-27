@@ -10,8 +10,14 @@ const createCopyPasteActions = (word) => ({
   }
 })
 
-exports.formatMainTranslation = (translation, pronunciation, targetLang) => ({
-  title: pronunciation ? `${translation} [${pronunciation}]` : translation,
+exports.formatPronunciation = (pronunciation, targetLang) => ({
+  title: pronunciation ? `[${pronunciation}]` : '',
+  subtitle: intl.pronunciationMsg[targetLang],
+  ...createCopyPasteActions(pronunciation ?? ''),
+})
+
+exports.formatMainTranslation = (translation, targetLang) => ({
+  title: translation,
   subtitle: intl.bestTranslMsg[targetLang],
   ...createCopyPasteActions(translation),
 })
