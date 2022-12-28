@@ -81,21 +81,6 @@ Open Alfred and type `t` **or** press `Cmd+Shift+K` to activate workflow!
 `Cmd+Shift+J` — to open favorites list (shortcut for `Cmd+Shift+K` + and entered `.`)
 
 
-## Screenshots
-
-**Auto** detection of **translation direction**
-
-![](screenshots/direction.jpg)
-
-**Auto correction** of misspelled words
-
-![](screenshots/autocorrection.jpg)
-
-**Learning Mode**
-
-https://user-images.githubusercontent.com/6503508/190931908-f900f9da-8299-43e9-bb10-633299b817ed.mov
-
-
 ## Testimonials
 
 **Visual** 
