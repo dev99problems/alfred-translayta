@@ -1,6 +1,10 @@
 # alfred-translayta
 
-<a src="https://www.npmjs.com/package/alfred-translayta"><img src="https://img.shields.io/npm/v/alfred-translayta?color=yellow" /></a>
+![version] ![MIT][license] ![last-commit]
+
+[version]: https://img.shields.io/npm/v/alfred-translayta
+[license]: https://img.shields.io/badge/license-MIT-blue.svg
+[last-commit]: https://img.shields.io/github/last-commit/dev99problems/alfred-translayta
 
 > **Translate** with Google Translate in Alfred (*en-uk* / *uk-en*). **Save** to favorites. Practice **learning** the words.
 
