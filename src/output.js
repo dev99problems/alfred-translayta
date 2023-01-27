@@ -40,5 +40,6 @@ exports.formatAutoCorrection = (correctedValue, targetLang) => ({
 exports.formatLastSearch = (lastUserInput, targetLang) => ({
   title: lastUserInput,
   subtitle: intl.lastSearch[targetLang],
+  ...createCopyPasteActions(lastUserInput),
   icon: { path: './icons/history.png' }
 })
