@@ -1,6 +1,6 @@
 {
   "name": "alfred-translayta",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Alfred workflow, which translates in uk-en/en-uk directions, save words to favorites.",
   "license": "MIT",
   "homepage": "https://github.com/dev99problems/alfred-translayta#readme",
