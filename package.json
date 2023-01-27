@@ -2,6 +2,8 @@
   "name": "alfred-translayta",
   "version": "2.1.0",
   "description": "Alfred workflow, which translates in uk-en/en-uk directions, save words to favorites.",
+  "license": "MIT",
+  "homepage": "https://github.com/dev99problems/alfred-translayta#readme",
   "main": "index.js",
   "scripts": {
     "postinstall": "alfy-init",
@@ -31,11 +33,6 @@
     "macos",
     "osx"
   ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/dev99problems/alfred-translayta/issues"
-  },
-  "homepage": "https://github.com/dev99problems/alfred-translayta#readme",
   "dependencies": {
     "@vitalets/google-translate-api": "5.1.0",
     "alfy": "0.11.1",
