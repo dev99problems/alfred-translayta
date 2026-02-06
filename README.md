@@ -1,4 +1,4 @@
-> After several years of active usage & support, this project came to it's end (mainly because of me migrating completely to Raycast). It was fun, educating & useful!
+> ⚠️ After several years of active usage & support, this project came to it's end (mainly because of me migrating completely to Raycast). It was fun, educating & useful!
 
 # alfred-translayta
 
